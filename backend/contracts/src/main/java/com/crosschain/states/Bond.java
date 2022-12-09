@@ -54,7 +54,7 @@ public class Bond implements LinearState {
         this.participants.add(holder);
     }
 
-    public Bond(String bondName, int faceValue, int couponRate, int yearsToMature, int paymentInterval, Party issuer, UniqueIdentifier linearID) {
+    public Bond(String bondName, int faceValue, int couponRate, int yearsToMature, int paymentInterval, Party issuer, UniqueIdentifier linearID, Party holder) {
         this.bondName = bondName;
         this.faceValue = faceValue;
         this.couponRate = couponRate;
@@ -62,8 +62,10 @@ public class Bond implements LinearState {
         this.paymentInterval = paymentInterval;
         this.issuer = issuer;
         this.linearID = linearID;
+        this.holder = holder;
         this.participants = new ArrayList<AbstractParty>();
         this.participants.add(issuer);
+        this.participants.add(holder);
     }
 
     public int getFaceValue() {
@@ -112,5 +114,10 @@ public class Bond implements LinearState {
     @Override
     public UniqueIdentifier getLinearId() {
         return linearID;
+    }
+
+    public Bond changeOwner(Party buyer) {
+        Bond newOwnerState = new Bond(this.bondName, this.faceValue, this.couponRate, this.yearsToMature, this.paymentInterval, this.issueDate, this.maturityDate, this.bondRating, this.issuer, buyer, this.linearID);
+        return newOwnerState;
     }
 }
