@@ -57,6 +57,7 @@ public class CreateAndIssueBond {
 
             FlowSession otherPartySession = initiateFlow(holder);
 
+            // try with signTransactionFlow
             final SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
 
             // gets transaction notarised and recorded

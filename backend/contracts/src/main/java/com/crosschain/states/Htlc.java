@@ -1,6 +1,9 @@
 package com.crosschain.states;
 
+import com.crosschain.contracts.HtlcContract;
+import net.corda.core.contracts.BelongsToContract;
 import net.corda.core.contracts.ContractState;
+import net.corda.core.contracts.UniqueIdentifier;
 import net.corda.core.identity.AbstractParty;
 import net.corda.core.identity.Party;
 import net.corda.core.serialization.ConstructorForDeserialization;
@@ -9,42 +12,40 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.List;
 
+@BelongsToContract(HtlcContract.class)
 public class Htlc implements ContractState {
 
-    private String HtlcId;
+    private String htlcId;
+    private UniqueIdentifier bondId;
     private Party sender;
     private Party receiver;
     private Party escrow;
     private int timeout; // in seconds
     private String key; // client generate off chain
     private String hash;
-    private int amount; // amount of tokens to transfer
-    private String currency; // token currency
-//    private HtlcStatusEnum status;
+    //    private HtlcStatusEnum status;
 
-    public Htlc(String htlcId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency) {
-        HtlcId = htlcId;
+    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency) {
+        this.htlcId = htlcId;
+        this.bondId = bondId;
         this.sender = sender;
         this.receiver = receiver;
         this.escrow = escrow;
         this.timeout = timeout;
         this.hash = hash;
-        this.amount = amount;
-        this.currency = currency;
-//        this.status = HtlcStatusEnum.SENDER_INITIATED;
+        //        this.status = HtlcStatusEnum.SENDER_INITIATED;
     }
 
     @ConstructorForDeserialization
-    public Htlc(String htlcId, Party sender, Party receiver, Party escrow, int timeout, String key, String hash, int amount, String currency) {
-        HtlcId = htlcId;
+    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String key, String hash) {
+        this.htlcId = htlcId;
+        this.bondId = bondId;
         this.sender = sender;
         this.receiver = receiver;
         this.escrow = escrow;
         this.timeout = timeout;
         this.key = key;
         this.hash = hash;
-        this.amount = amount;
-        this.currency = currency;
     }
 
     @NotNull
@@ -54,7 +55,7 @@ public class Htlc implements ContractState {
     }
 
     public String getHtlcId() {
-        return HtlcId;
+        return htlcId;
     }
 
     public Party getSender() {
@@ -77,15 +78,15 @@ public class Htlc implements ContractState {
         return hash;
     }
 
-    public int getAmount() {
-        return amount;
+    public Party getEscrow() {
+        return escrow;
     }
 
-    public String getCurrency() {
-        return currency;
+    public UniqueIdentifier getBondId() {
+        return bondId;
     }
 
-//    public HtlcStatusEnum getStatus() {
+    //    public HtlcStatusEnum getStatus() {
 //        return status;
 //    }
 }

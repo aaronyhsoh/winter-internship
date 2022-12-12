@@ -15,6 +15,7 @@ public class BondContract implements Contract {
     public interface Commands extends CommandData {
         class Create implements BondContract.Commands {}
         class Issue implements BondContract.Commands {}
+        class Transfer implements BondContract.Commands {}
         class Redeem implements BondContract.Commands {}
     }
 
@@ -35,6 +36,8 @@ public class BondContract implements Contract {
             });
         } else if (commandData instanceof BondContract.Commands.Issue) {
             // TO BE FILLED
+        } else if (commandData instanceof BondContract.Commands.Transfer) {
+
         } else if (commandData instanceof BondContract.Commands.Redeem) {
             // TO BE FILLED
         } else {
