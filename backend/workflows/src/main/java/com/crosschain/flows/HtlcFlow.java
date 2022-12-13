@@ -2,6 +2,7 @@ package com.crosschain.flows;
 
 import co.paralleluniverse.fibers.Suspendable;
 import com.crosschain.contracts.HtlcContract;
+import com.crosschain.states.Bond;
 import com.crosschain.states.Htlc;
 import net.corda.core.contracts.StateAndRef;
 import net.corda.core.contracts.UniqueIdentifier;
@@ -51,8 +52,19 @@ public class HtlcFlow {
 
             // create transaction components
             Htlc output = new Htlc(htlcId, bondId, getOurIdentity(), receiver, escrow, timeout, hash, amount, currency);
-            HtlcContract.Commands.Initiated command = new HtlcContract.Commands.Initiated();
 
+            StateAndRef<Bond> bondStateAndRef = getServiceHub().getVaultService()
+                    .queryBy(Bond.class)
+                    .getStates()
+                    .stream().filter(data1 ->
+                            data1.getState().getData().getLinearId().equals(bondId))
+                    .findAny()
+                    .orElseThrow(() -> new IllegalArgumentException("Bond state with the id " + bondId + "does not exist"));
+
+            Bond bondState = bondStateAndRef.getState().getData();
+            if (!bondState.getHolder().getOwningKey().equals(getOurIdentity())) {
+                throw new FlowException("Initiator is not the owner of the bond");
+            }
             // transfer bond to escrow
             subFlow(new TransferBondFlow.TransferBondInitiator(escrow, bondId));
 
@@ -134,7 +146,6 @@ public class HtlcFlow {
     public static class HtlcWithdrawResponder extends FlowLogic<SignedTransaction> {
         private final FlowSession receiverSession;
 
-
         public HtlcWithdrawResponder(FlowSession receiverSession) {
             this.receiverSession = receiverSession;
         }
@@ -169,10 +180,11 @@ public class HtlcFlow {
 
             // check timeout
             int timeout = htlcState.getTimeout();
-            System.out.println("Timeout time: " + timeout);
-            System.out.println("Current time");
             int currentTime = (int) Instant.now().getEpochSecond();
+            System.out.println("Timeout time: " + timeout);
+            System.out.println("Current time" + currentTime);
 
+            // if current time passed the deadline
             if (currentTime > timeout) {
                 receiverSession.send("Timeout error");
                 throw new FlowException("Timeout error");
@@ -184,6 +196,7 @@ public class HtlcFlow {
 
             if (hash.equals(generatedHash)) {
                 receiverSession.send("Withdrawal is Successful");
+                System.out.println("Counter party" + receiverSession.getCounterparty());
                 return subFlow(new TransferBondFlow.TransferBondInitiator(receiverSession.getCounterparty(), htlcState.getBondId()));
             } else {
                 throw new FlowException("Incorrect secret");
