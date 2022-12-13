@@ -62,7 +62,7 @@ public class HtlcFlow {
                     .orElseThrow(() -> new IllegalArgumentException("Bond state with the id " + bondId + "does not exist"));
 
             Bond bondState = bondStateAndRef.getState().getData();
-            if (!bondState.getHolder().getOwningKey().equals(getOurIdentity())) {
+            if (!bondState.getHolder().getOwningKey().equals(getOurIdentity().getOwningKey())) {
                 throw new FlowException("Initiator is not the owner of the bond");
             }
             // transfer bond to escrow

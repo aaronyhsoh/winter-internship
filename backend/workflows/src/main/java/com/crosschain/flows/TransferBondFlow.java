@@ -12,7 +12,6 @@ import net.corda.core.node.services.vault.QueryCriteria;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
 import org.jetbrains.annotations.NotNull;
-import sun.security.x509.UniqueIdentity;
 
 import java.util.Arrays;
 import java.util.UUID;

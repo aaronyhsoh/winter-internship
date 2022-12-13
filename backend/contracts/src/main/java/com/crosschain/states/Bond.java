@@ -68,6 +68,14 @@ public class Bond implements LinearState {
         this.participants.add(holder);
     }
 
+    public String getBondName() {
+        return bondName;
+    }
+
+    public UniqueIdentifier getLinearID() {
+        return linearID;
+    }
+
     public int getFaceValue() {
         return faceValue;
     }
