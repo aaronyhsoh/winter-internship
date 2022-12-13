@@ -170,6 +170,7 @@ public class HtlcFlow {
             // check timeout
             int timeout = htlcState.getTimeout();
             System.out.println("Timeout time: " + timeout);
+            System.out.println("Current time");
             int currentTime = (int) Instant.now().getEpochSecond();
 
             if (currentTime > timeout) {
@@ -182,10 +183,10 @@ public class HtlcFlow {
             String generatedHash = generateHash(secret);
 
             if (hash.equals(generatedHash)) {
-                receiverSession.send("Withdraw Successful");
+                receiverSession.send("Withdrawal is Successful");
                 return subFlow(new TransferBondFlow.TransferBondInitiator(receiverSession.getCounterparty(), htlcState.getBondId()));
             } else {
-                throw new FlowException("Secret provided is incorrect");
+                throw new FlowException("Incorrect secret");
             }
         }
     }

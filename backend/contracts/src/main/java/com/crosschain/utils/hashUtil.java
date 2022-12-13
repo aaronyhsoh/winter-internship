@@ -15,6 +15,6 @@ public class hashUtil {
         byte[] hashBytes = shaDigest.digest(secret.getBytes(StandardCharsets.UTF_8));
 
         System.out.println( "0x" + new String(Hex.encode(hashBytes)));
-        return "0x" + new String(Hex.encode(hashBytes));
+        return new String(Hex.encode(hashBytes));
     }
 }
