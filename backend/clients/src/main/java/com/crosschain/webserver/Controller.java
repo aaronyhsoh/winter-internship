@@ -1,14 +1,18 @@
 package com.crosschain.webserver;
 
+import com.crosschain.dto.CreateBondDto;
 import com.crosschain.flows.CreateAndIssueBond;
 import com.crosschain.states.Bond;
 import net.corda.core.identity.CordaX500Name;
+import net.corda.core.identity.Party;
 import net.corda.core.messaging.CordaRPCOps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 /**
  * Define your API endpoints here.
@@ -32,13 +36,19 @@ public class Controller {
 
     // returns generated bond id
     @RequestMapping(value = "/bond/create", method = RequestMethod.POST)
-    private ResponseEntity<String> createAndIssueBond(@RequestBody Bond newBond) {
+    private ResponseEntity<String> createAndIssueBond(@RequestBody CreateBondDto newBond) {
         System.out.println(newBond);
         try {
             //run flow to create bond
+            Set<Party> holders = proxy.partiesFromName(newBond.getHolder(), false);
+            if (holders.size() != 1) {
+                throw new IllegalAccessException("Unique party cannot be found");
+            }
+            Party holder = holders.iterator().next();
+
             Bond output = (Bond) proxy.startTrackedFlowDynamic(
                     CreateAndIssueBond.CreateAndIssueBondInitiator.class,
-                    newBond.getHolder(),
+                    holder,
                     newBond.getBondName(),
                     newBond.getFaceValue(),
                     newBond.getCouponRate(),
