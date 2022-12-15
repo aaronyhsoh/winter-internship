@@ -8,8 +8,110 @@
 		{
 			"name": "CreateBond",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bondName\": \"bondC\",\n    \"faceValue\": 100,\n    \"couponRate\": 5,\n    \"yearsToMature\": 2, \n    \"paymentInterval\": 0.5,\n    \"holder\": \"PartyB\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/bond/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bond",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BondHtlcRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bondId\": \"79650f36-57b9-4a53-95a6-99c38779eaef\", \n    \"receiver\": \"PartyB\", \n    \"escrow\": \"Escrow\", \n    \"timeout\": 30000, \n    \"currency\": \"eth\", \n    \"amount\": 1, \n    \"hash\": \"9f731fd7b8b451ac939beef4c590867cc42a7831a306a3221a42800c6b6de388\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/htlc/bond/initiate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"bond",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransferBond",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": \"PartyB\",\n    \"bondId\": \"2df696a3-d040-4738-9325-79bb13961f9a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/bond/transfer",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bond",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WithdrawBondHtlc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"escrow\": \"Escrow\", \n    \"htlcId\": 1,\n    \"secret\": \"i like to party\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/htlc/bond/withdraw",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"bond",
+						"withdraw"
+					]
+				}
 			},
 			"response": []
 		}
