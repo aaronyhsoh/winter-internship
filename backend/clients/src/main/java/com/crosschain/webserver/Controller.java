@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 import java.util.UUID;
 
+import static com.crosschain.utils.PartyUtil.findParty;
+
 /**
  * Define your API endpoints here.
  */
@@ -143,12 +145,11 @@ public class Controller {
     public ResponseEntity<Object> refundBondHtlc(@RequestBody RefundHtlcDto request) {
         try {
             Party escrow = findParty(proxy, request.getEscrow(), false);
-            UniqueIdentifier bondId = new UniqueIdentifier(null, UUID.fromString(request.getHtlcId()));
 
             String output = proxy.startTrackedFlowDynamic(
                     HtlcFlow.HtlcRefundInitiator.class,
                     escrow,
-                    bondId)
+                    request.getHtlcId())
                     .getReturnValue()
                     .get();
 
@@ -160,13 +161,13 @@ public class Controller {
     }
 
     // helper class
-    public static Party findParty(CordaRPCOps proxy, String partyName, boolean exact) throws IllegalAccessException {
-        Set<Party> resultList = proxy.partiesFromName(partyName, exact);
-        if (resultList.size() != 1) {
-            throw new IllegalAccessException("Unique party cannot be found");
-        }
-        Party result = resultList.iterator().next();
-        return result;
-    }
+//    public static Party findParty(CordaRPCOps proxy, String partyName, boolean exact) throws IllegalAccessException {
+//        Set<Party> resultList = proxy.partiesFromName(partyName, exact);
+//        if (resultList.size() != 1) {
+//            throw new IllegalAccessException("Unique party cannot be found");
+//        }
+//        Party result = resultList.iterator().next();
+//        return result;
+//    }
 
 }

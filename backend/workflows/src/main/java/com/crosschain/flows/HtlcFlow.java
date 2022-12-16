@@ -217,9 +217,9 @@ public class HtlcFlow {
     public static class HtlcRefundInitiator extends FlowLogic<String> {
 
         private final Party escrow;
-        private final UniqueIdentifier htlcId;
+        private final String htlcId;
 
-        public HtlcRefundInitiator(Party escrow, UniqueIdentifier htlcId) {
+        public HtlcRefundInitiator(Party escrow, String htlcId) {
             this.escrow = escrow;
             this.htlcId = htlcId;
         }
@@ -262,7 +262,7 @@ public class HtlcFlow {
             System.out.println("Refund responder: " + getOurIdentity().getName());
 
             //verify initiator identity
-            if (!htlcState.getSender().equals(getOurIdentity())) {
+            if (!htlcState.getSender().equals(otherPartySession.getCounterparty())) {
                 throw new FlowException("Refund can only be invoked by the sender");
             }
             int timeout = htlcState.getTimeout();
