@@ -23,12 +23,10 @@ public class TransferBondFlow {
     @InitiatingFlow
     @StartableByRPC
     public static class TransferBondInitiator extends FlowLogic<SignedTransaction> {
-        private Party owner;
         private Party holder;
         private UniqueIdentifier bondId;
 
         public TransferBondInitiator(Party buyer, UniqueIdentifier bondId) {
-            this.owner = null;
             this.holder = buyer;
             this.bondId = bondId;
         }

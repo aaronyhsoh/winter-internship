@@ -2,9 +2,9 @@ package com.crosschain.dto;
 
 public class WithdrawHtlcDto {
 
-    private final String escrow;
-    private final String htlcId;
-    private final String secret;
+    private String escrow;
+    private String htlcId;
+    private String secret;
 
     public WithdrawHtlcDto(String escrow, String htlcId, String secret) {
         this.escrow = escrow;

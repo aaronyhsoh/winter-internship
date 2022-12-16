@@ -12,6 +12,7 @@ import net.corda.core.identity.Party;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
 import net.corda.core.utilities.UntrustworthyData;
+import org.checkerframework.common.aliasing.qual.Unique;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
@@ -210,4 +211,74 @@ public class HtlcFlow {
             }
         }
     }
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class HtlcRefundInitiator extends FlowLogic<String> {
+
+        private final Party escrow;
+        private final UniqueIdentifier htlcId;
+
+        public HtlcRefundInitiator(Party escrow, UniqueIdentifier htlcId) {
+            this.escrow = escrow;
+            this.htlcId = htlcId;
+        }
+
+        @Override
+        @Suspendable
+        public String call() throws FlowException {
+            FlowSession escrowSession = initiateFlow(escrow);
+            UntrustworthyData<String> resultWrapper = escrowSession.sendAndReceive(String.class, htlcId);
+            String result = resultWrapper.unwrap(data -> data);
+            return result;
+        }
+    }
+
+    @InitiatedBy(HtlcRefundInitiator.class)
+    public static class HtlcRefundResponder extends FlowLogic<SignedTransaction> {
+
+        private FlowSession otherPartySession;
+
+        public HtlcRefundResponder(FlowSession otherPartySession) {
+            this.otherPartySession = otherPartySession;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransaction call() throws FlowException {
+            UntrustworthyData<String> htlcIdWrapper = otherPartySession.receive(String.class);
+            String htlcId = htlcIdWrapper.unwrap(data -> data);
+
+            StateAndRef<Htlc> stateAndRef = getServiceHub().getVaultService()
+                    .queryBy(Htlc.class)
+                    .getStates()
+                    .stream()
+                    .filter(data -> data.getState().getData().getHtlcId().equals(htlcId))
+                    .findAny()
+                    .orElseThrow(() -> new IllegalArgumentException("Htlc state with id " + htlcId + "does not exist"));
+
+            Htlc htlcState = stateAndRef.getState().getData();
+
+            System.out.println("Refund responder: " + getOurIdentity().getName());
+
+            //verify initiator identity
+            if (!htlcState.getSender().equals(getOurIdentity())) {
+                throw new FlowException("Refund can only be invoked by the sender");
+            }
+            int timeout = htlcState.getTimeout();
+            int currentTime = (int) Instant.now().getEpochSecond();
+
+            // verify timeout
+            if (currentTime <= timeout) {
+                otherPartySession.send("Unable to refund, swap is still valid.");
+                throw new FlowException("Unable to refund, swap is still valid.");
+            }
+
+            UniqueIdentifier bondId = htlcState.getBondId();
+            Party sender = htlcState.getSender();
+            otherPartySession.send("Refund successful");
+            return subFlow(new TransferBondFlow.TransferBondInitiator(sender, bondId));
+        }
+    }
+
 }

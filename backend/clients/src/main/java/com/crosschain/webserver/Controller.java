@@ -1,9 +1,6 @@
 package com.crosschain.webserver;
 
-import com.crosschain.dto.BondTransferDto;
-import com.crosschain.dto.CreateBondDto;
-import com.crosschain.dto.CreateHtlcDto;
-import com.crosschain.dto.WithdrawHtlcDto;
+import com.crosschain.dto.*;
 import com.crosschain.flows.CreateAndIssueBond;
 import com.crosschain.flows.HtlcFlow;
 import com.crosschain.flows.TransferBondFlow;
@@ -62,8 +59,8 @@ public class Controller {
 
             return ResponseEntity.ok(output.getLinearID().getId().toString());
         } catch (Exception ex) {
-            System.out.println("Exception: " + ex.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getStackTrace());
+            System.out.println("Exception: " + ex.getStackTrace());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
 
@@ -84,8 +81,8 @@ public class Controller {
 
             return ResponseEntity.ok(output.getHolder().getName());
         } catch (Exception ex) {
-            System.out.println("Exception: " + ex.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getStackTrace());
+            System.out.println("Exception: " + ex.getStackTrace());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
 
@@ -114,7 +111,7 @@ public class Controller {
 
             return ResponseEntity.ok(output);
         } catch (Exception ex) {
-            System.out.println("Exception: " + ex.getMessage());
+            System.out.println("Exception: " + ex.getStackTrace());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
@@ -137,11 +134,32 @@ public class Controller {
 
             return ResponseEntity.ok(output);
         } catch (Exception ex) {
-            System.out.println("Exception: " + ex.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getStackTrace());
+            System.out.println("Exception: " + ex.getStackTrace());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
 
+    @RequestMapping(value="/htlc/bond/refund", method = RequestMethod.POST)
+    public ResponseEntity<Object> refundBondHtlc(@RequestBody RefundHtlcDto request) {
+        try {
+            Party escrow = findParty(proxy, request.getEscrow(), false);
+            UniqueIdentifier bondId = new UniqueIdentifier(null, UUID.fromString(request.getHtlcId()));
+
+            String output = proxy.startTrackedFlowDynamic(
+                    HtlcFlow.HtlcRefundInitiator.class,
+                    escrow,
+                    bondId)
+                    .getReturnValue()
+                    .get();
+
+            return ResponseEntity.ok(output);
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
+    }
+
+    // helper class
     public static Party findParty(CordaRPCOps proxy, String partyName, boolean exact) throws IllegalAccessException {
         Set<Party> resultList = proxy.partiesFromName(partyName, exact);
         if (resultList.size() != 1) {
@@ -150,4 +168,5 @@ public class Controller {
         Party result = resultList.iterator().next();
         return result;
     }
+
 }

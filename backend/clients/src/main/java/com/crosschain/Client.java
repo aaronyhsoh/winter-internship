@@ -1,5 +1,8 @@
 package com.crosschain;
 
+import com.crosschain.webserver.NodeRPCConnection;
+import com.fasterxml.jackson.databind.Module;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.corda.client.rpc.CordaRPCClient;
 import net.corda.client.rpc.CordaRPCConnection;
 import net.corda.core.identity.CordaX500Name;
@@ -8,6 +11,10 @@ import net.corda.core.node.NodeInfo;
 import net.corda.core.utilities.NetworkHostAndPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jackson.JsonComponentModule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 import java.util.List;
 
