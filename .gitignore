@@ -1,5 +1,12 @@
-backend/build/
-backend/clients/build/
-backend/contracts/build/
-backend/workflows/build/
-backend/clients/logs
+.DS_Store
+.gradle/
+.idea
+**/build/
+**/bin/
+*/.gradle/
+*/.idea/*
+**/.vscode/*
+**/out/
+**/logs/
+**/node_modules/
+corda-nodeinfo/corda-nodeinfo.iml
