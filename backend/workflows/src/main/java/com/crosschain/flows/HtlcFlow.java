@@ -12,7 +12,6 @@ import net.corda.core.identity.Party;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
 import net.corda.core.utilities.UntrustworthyData;
-import org.checkerframework.common.aliasing.qual.Unique;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
@@ -52,7 +51,7 @@ public class HtlcFlow {
             final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB"));
 
             // create transaction components
-            Htlc output = new Htlc(htlcId, bondId, getOurIdentity(), receiver, escrow, timeout, hash, amount, currency);
+            Htlc output = new Htlc(htlcId, bondId, getOurIdentity(), receiver, escrow, timeout, hash, amount, currency, Htlc.INITIATED_STATUS);
 
             // get bond
             StateAndRef<Bond> bondStateAndRef = getServiceHub().getVaultService()
@@ -162,9 +161,7 @@ public class HtlcFlow {
         @Suspendable
         public SignedTransaction call() throws FlowException {
             UntrustworthyData<LinkedHashMap> payload = receiverSession.receive(LinkedHashMap.class);
-            LinkedHashMap<String, String> data = payload.unwrap(data1 -> {
-                return data1;
-            });
+            LinkedHashMap<String, String> data = payload.unwrap(data1 -> data1);
             String htlcId = data.get("htlcId");
             String secret = data.get("secret");
 
@@ -185,12 +182,8 @@ public class HtlcFlow {
                 throw new FlowException("Unable to withdraw, withdrawal can only be invoked by the intended receiver");
             }
 
-
-            // check timeout
             int timeout = htlcState.getTimeout();
             int currentTime = (int) Instant.now().getEpochSecond();
-            System.out.println("Timeout time: " + timeout);
-            System.out.println("Current time" + currentTime);
 
             // if current time passed the deadline
             if (currentTime > timeout) {
@@ -204,7 +197,6 @@ public class HtlcFlow {
 
             if (hash.equals(generatedHash)) {
                 receiverSession.send("Withdrawal is Successful");
-                System.out.println("Counter party" + receiverSession.getCounterparty());
                 return subFlow(new TransferBondFlow.TransferBondInitiator(receiverSession.getCounterparty(), htlcState.getBondId()));
             } else {
                 throw new FlowException("Incorrect secret");
@@ -258,8 +250,6 @@ public class HtlcFlow {
                     .orElseThrow(() -> new IllegalArgumentException("Htlc state with id " + htlcId + "does not exist"));
 
             Htlc htlcState = stateAndRef.getState().getData();
-
-            System.out.println("Refund responder: " + getOurIdentity().getName());
 
             //verify initiator identity
             if (!htlcState.getSender().equals(otherPartySession.getCounterparty())) {

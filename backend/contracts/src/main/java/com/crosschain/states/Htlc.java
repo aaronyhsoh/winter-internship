@@ -23,9 +23,16 @@ public class Htlc implements ContractState {
     private int timeout;
     private String key;
     private String hash;
-    //    private HtlcStatusEnum status;
+    private int amount;
+    private String currency;
+    private String status;
 
-    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency) {
+    public static final String INITIATED_STATUS = "INITIATED";
+    public static final String WITHDRAW_STATUS = "WITHDRAW";
+    public static final String REFUNDED_STATUS = "REFUNDED";
+
+
+    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency, String status) {
         this.htlcId = htlcId;
         this.bondId = bondId;
         this.sender = sender;
@@ -33,11 +40,13 @@ public class Htlc implements ContractState {
         this.escrow = escrow;
         this.timeout = timeout;
         this.hash = hash;
-        //        this.status = HtlcStatusEnum.SENDER_INITIATED;
+        this.amount = amount;
+        this.currency = currency;
+        this.status = status;
     }
 
     @ConstructorForDeserialization
-    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String key, String hash) {
+    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String key, String hash,  int amount, String currency, String status) {
         this.htlcId = htlcId;
         this.bondId = bondId;
         this.sender = sender;
@@ -46,6 +55,9 @@ public class Htlc implements ContractState {
         this.timeout = timeout;
         this.key = key;
         this.hash = hash;
+        this.amount = amount;
+        this.currency = currency;
+        this.status = status;
     }
 
     @NotNull
@@ -86,7 +98,15 @@ public class Htlc implements ContractState {
         return bondId;
     }
 
-    //    public HtlcStatusEnum getStatus() {
-//        return status;
-//    }
+    public int getAmount() {
+        return amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }

@@ -42,7 +42,6 @@ public class CreateAndIssueBond {
 
             final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
 
-            // build output bond
             UniqueIdentifier uniqueId = new UniqueIdentifier();
             Bond output = new Bond(bondName, faceValue, couponRate, yearsToMature, paymentInterval, sender, uniqueId, holder);
 
@@ -52,7 +51,6 @@ public class CreateAndIssueBond {
             txBuilder.addCommand(new BondContract.Commands.Create(), Arrays.asList(this.holder.getOwningKey(), sender.getOwningKey()));
 
             txBuilder.verify(getServiceHub());
-            // sign transaction with our private key
             final SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
 
             FlowSession otherPartySession = initiateFlow(holder);
@@ -60,7 +58,7 @@ public class CreateAndIssueBond {
             // try with signTransactionFlow
             SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
 
-            // gets transaction notarised and recorded
+            // transaction notarised and recorded
             if (sender.equals(holder)) {
                 return subFlow(new FinalityFlow(fullySignedTx, Collections.emptyList()));
             } else {

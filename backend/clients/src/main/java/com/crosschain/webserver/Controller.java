@@ -1,6 +1,7 @@
 package com.crosschain.webserver;
 
 import com.crosschain.dto.*;
+import com.crosschain.flows.CheckBond;
 import com.crosschain.flows.CreateAndIssueBond;
 import com.crosschain.flows.HtlcFlow;
 import com.crosschain.flows.TransferBondFlow;
@@ -17,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.Set;
 import java.util.UUID;
 
@@ -70,11 +72,12 @@ public class Controller {
     public ResponseEntity<Object> transferBond(@RequestBody BondTransferDto request) {
         try {
             Party receiver =  findParty(proxy,request.getReceiver(), false);
+            UniqueIdentifier bondId = new UniqueIdentifier(null, UUID.fromString(request.getBondId()));
 
             Bond output = (Bond) proxy.startTrackedFlowDynamic(
                     TransferBondFlow.TransferBondInitiator.class,
                     receiver,
-                    request.getBondId())
+                    bondId)
                     .getReturnValue()
                     .get()
                     .getTx()
@@ -86,6 +89,21 @@ public class Controller {
             System.out.println("Exception: " + ex.getStackTrace());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
+    }
+
+    @RequestMapping(value="/bond", method=RequestMethod.GET)
+    public ResponseEntity<Object> getBondById(@RequestParam String id) {
+       try {
+            Bond output = (Bond) proxy.startTrackedFlowDynamic(CheckBond.CheckBondById.class, id)
+                    .getReturnValue()
+                    .get();
+
+            return ResponseEntity.ok(output);
+       } catch (Exception ex) {
+           System.out.println("Exception: " + ex.getStackTrace());
+           return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+       }
+
     }
 
     @RequestMapping(value = "/htlc/bond/initiate", method=RequestMethod.POST)
@@ -160,14 +178,5 @@ public class Controller {
         }
     }
 
-    // helper class
-//    public static Party findParty(CordaRPCOps proxy, String partyName, boolean exact) throws IllegalAccessException {
-//        Set<Party> resultList = proxy.partiesFromName(partyName, exact);
-//        if (resultList.size() != 1) {
-//            throw new IllegalAccessException("Unique party cannot be found");
-//        }
-//        Party result = resultList.iterator().next();
-//        return result;
-//    }
 
 }
