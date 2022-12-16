@@ -2,4 +2,4 @@ backend/build/
 backend/clients/build/
 backend/contracts/build/
 backend/workflows/build/
-backend/clients/logs/archive/
+backend/clients/logs
