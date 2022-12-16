@@ -20,8 +20,8 @@ public class Htlc implements ContractState {
     private Party sender;
     private Party receiver;
     private Party escrow;
-    private int timeout; // in seconds
-    private String key; // client generate off chain
+    private int timeout;
+    private String key;
     private String hash;
     //    private HtlcStatusEnum status;
 

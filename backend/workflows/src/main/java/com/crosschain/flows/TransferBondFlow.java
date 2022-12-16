@@ -23,25 +23,26 @@ public class TransferBondFlow {
     @InitiatingFlow
     @StartableByRPC
     public static class TransferBondInitiator extends FlowLogic<SignedTransaction> {
-        private Party buyer;
+        private Party owner;
+        private Party holder;
         private UniqueIdentifier bondId;
 
         public TransferBondInitiator(Party buyer, UniqueIdentifier bondId) {
-            this.buyer = buyer;
+            this.owner = null;
+            this.holder = buyer;
             this.bondId = bondId;
         }
 
         @Override
         @Suspendable
         public SignedTransaction call() throws FlowException {
+
             QueryCriteria.LinearStateQueryCriteria inputCriteria = new QueryCriteria.LinearStateQueryCriteria()
                     .withUuid(Arrays.asList(UUID.fromString(bondId.toString())))
                     .withStatus(Vault.StateStatus.UNCONSUMED)
                     .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
 
-            // reference data without consuming it
             StateAndRef bondStateAndRef = getServiceHub().getVaultService().queryBy(Bond.class, inputCriteria).getStates().get(0);
-
             Bond originalBond = (Bond) bondStateAndRef.getState().getData();
 
             // ensure that initiator is the owner of the bond
@@ -50,27 +51,32 @@ public class TransferBondFlow {
                 return null;
             });
 
-            Bond output = originalBond.changeOwner(buyer);
+            // output bond with new owner
+            Bond output = originalBond.changeOwner(holder);
 
             Party notary = bondStateAndRef.getState().getNotary();
-
             TransactionBuilder txBuilder = new TransactionBuilder(notary)
                     .addInputState(bondStateAndRef)
                     .addOutputState(output, BondContract.ID)
-                    .addCommand(new BondContract.Commands.Transfer(), Arrays.asList(getOurIdentity().getOwningKey(), this.buyer.getOwningKey()));
+                    .addCommand(new BondContract.Commands.Transfer(), Arrays.asList(this.holder.getOwningKey(), getOurIdentity().getOwningKey()));
 
             txBuilder.verify(getServiceHub());
 
             final SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
 
-            FlowSession otherPartySession = initiateFlow(buyer);
-            final SignedTransaction fullySignedTx = subFlow(
-                    new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession))
-            );
+            // initiate sessions for all parties
+            FlowSession otherPartySession = initiateFlow(holder);
+            FlowSession bondIssuerSession = initiateFlow(output.getIssuer());
 
-            SignedTransaction result = subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
+            final SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
 
-            return result;
+            // tell everyone to save the transaction
+            if (holder.equals(output.getIssuer()) || output.getIssuer().equals(getOurIdentity())) {
+                return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
+            } else {
+                return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession, bondIssuerSession)));
+            }
+
         }
     }
 
@@ -89,7 +95,6 @@ public class TransferBondFlow {
             SignedTransaction signedTransaction = subFlow(new SignTransactionFlow(counterPartySession) {
                 @Override
                 protected void checkTransaction(@NotNull SignedTransaction stx) throws FlowException {
-
                 }
             });
 
@@ -97,4 +102,6 @@ public class TransferBondFlow {
             return null;
         }
     }
+
+
 }

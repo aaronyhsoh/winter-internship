@@ -1,7 +1,5 @@
 package com.crosschain.dto;
 
-import net.corda.core.identity.Party;
-
 public class CreateBondDto {
     private String holder;
     private String bondName;

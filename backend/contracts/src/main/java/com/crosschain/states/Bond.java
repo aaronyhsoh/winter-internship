@@ -9,7 +9,7 @@ import net.corda.core.identity.Party;
 import net.corda.core.serialization.ConstructorForDeserialization;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -32,9 +32,6 @@ public class Bond implements LinearState {
     // LinearState required variable
     private UniqueIdentifier linearID;
 
-    //required by all corda states to indicate storing parties
-    private List<AbstractParty> participants;
-
     @ConstructorForDeserialization
     public Bond(String bondName, int faceValue, int couponRate, int yearsToMature, int paymentInterval, Date issueDate, Date maturityDate, String bondRating, Party issuer, Party holder, UniqueIdentifier linearID) {
         this.bondName = bondName;
@@ -48,9 +45,6 @@ public class Bond implements LinearState {
         this.issuer = issuer;
         this.holder = holder;
         this.linearID = linearID;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(issuer);
-        this.participants.add(holder);
     }
 
     public Bond(String bondName, int faceValue, int couponRate, int yearsToMature, int paymentInterval, Party issuer, UniqueIdentifier linearID, Party holder) {
@@ -62,9 +56,6 @@ public class Bond implements LinearState {
         this.issuer = issuer;
         this.linearID = linearID;
         this.holder = holder;
-        this.participants = new ArrayList<AbstractParty>();
-        this.participants.add(issuer);
-        this.participants.add(holder);
     }
 
     public String getBondName() {
@@ -111,10 +102,11 @@ public class Bond implements LinearState {
         return holder;
     }
 
+    //required by all corda states to indicate storing parties
     @Override
     @NotNull
     public List<AbstractParty> getParticipants() {
-        return participants;
+        return Arrays.asList(issuer, holder);
     }
 
     @NotNull

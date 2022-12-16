@@ -53,6 +53,7 @@ public class HtlcFlow {
             // create transaction components
             Htlc output = new Htlc(htlcId, bondId, getOurIdentity(), receiver, escrow, timeout, hash, amount, currency);
 
+            // get bond
             StateAndRef<Bond> bondStateAndRef = getServiceHub().getVaultService()
                     .queryBy(Bond.class)
                     .getStates()
@@ -60,31 +61,37 @@ public class HtlcFlow {
                             data1.getState().getData().getLinearId().equals(bondId))
                     .findAny()
                     .orElseThrow(() -> new IllegalArgumentException("Bond state with the id " + bondId + "does not exist"));
-
             Bond bondState = bondStateAndRef.getState().getData();
-            if (!bondState.getHolder().getOwningKey().equals(getOurIdentity().getOwningKey())) {
-                throw new FlowException("Initiator is not the owner of the bond");
+
+            // verify initiator is bond owner
+            if (!bondState.getHolder().equals(getOurIdentity())){
+                throw new FlowException(getOurIdentity().getName() + " is not the owner of " + bondState.getHolder().getName() + "'s bond");
             }
+
             // transfer bond to escrow
             subFlow(new TransferBondFlow.TransferBondInitiator(escrow, bondId));
 
+            System.out.println("Transfer flow completed");
+            
             // transaction builder
             TransactionBuilder txBuilder = new TransactionBuilder(notary)
                     .addOutputState(output, HtlcContract.ID)
-                    .addCommand(new HtlcContract.Commands.Initiated(), Arrays.asList(getOurIdentity().getOwningKey(), escrow.getOwningKey(), receiver.getOwningKey()));
+                    .addCommand(new HtlcContract.Commands.Initiated(), Arrays.asList(getOurIdentity().getOwningKey(), receiver.getOwningKey(), escrow.getOwningKey()));
+
+            System.out.println("Htlc flow" + Arrays.asList(getOurIdentity().getName(), escrow.getName(), receiver.getName()));
 
             // verify transaction is valid
             txBuilder.verify(getServiceHub());
 
-            // create sessions to escrow and receiver
-            FlowSession escrowSession = initiateFlow(escrow);
-            FlowSession receiverSession = initiateFlow(receiver);
-
             // sign transaction
-            SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
+            SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder, getOurIdentity().getOwningKey());
 
-            // escrow sign transaction
-            SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(escrowSession, receiverSession)));
+            // create sessions to escrow and receiver
+            FlowSession escrowSession = initiateFlow(output.getEscrow());
+            FlowSession receiverSession = initiateFlow(output.getReceiver());
+
+            // escrow and receiver sign transaction
+            final SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(escrowSession, receiverSession)));
 
             return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(escrowSession, receiverSession)));
         }

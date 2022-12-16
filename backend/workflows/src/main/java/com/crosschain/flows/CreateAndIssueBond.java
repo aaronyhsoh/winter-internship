@@ -11,6 +11,7 @@ import net.corda.core.transactions.TransactionBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 
 public class CreateAndIssueBond {
@@ -48,27 +49,30 @@ public class CreateAndIssueBond {
             TransactionBuilder txBuilder = new TransactionBuilder(notary);
 
             txBuilder.addOutputState(output);
-            txBuilder.addCommand(new BondContract.Commands.Create(), Arrays.asList(sender.getOwningKey(), holder.getOwningKey()));
+            txBuilder.addCommand(new BondContract.Commands.Create(), Arrays.asList(this.holder.getOwningKey(), sender.getOwningKey()));
 
             txBuilder.verify(getServiceHub());
-
             // sign transaction with our private key
             final SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
 
             FlowSession otherPartySession = initiateFlow(holder);
 
             // try with signTransactionFlow
-            final SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
+            SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
 
             // gets transaction notarised and recorded
-            return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
+            if (sender.equals(holder)) {
+                return subFlow(new FinalityFlow(fullySignedTx, Collections.emptyList()));
+            } else {
+                return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
+            }
+
         }
     }
 
     @InitiatedBy(CreateAndIssueBondInitiator.class)
     public static class CreateAndIssueBondResponder extends FlowLogic<Void> {
         private FlowSession counterPartySession;
-
 
         public CreateAndIssueBondResponder(FlowSession counterPartySession) {
             this.counterPartySession = counterPartySession;
