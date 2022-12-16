@@ -1,1 +1,4 @@
 backend/build/
+backend/clients/build/
+backend/contracts/build/
+backend/workflows/build/
