@@ -11,6 +11,7 @@ public class HtlcContract implements Contract {
     public interface Commands extends CommandData {
         class Initiated implements BondContract.Commands {}
         class Withdraw implements BondContract.Commands {}
+        class Refund implements BondContract.Commands {}
     }
 
     @Override

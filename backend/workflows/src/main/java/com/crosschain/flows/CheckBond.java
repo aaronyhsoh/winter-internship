@@ -71,6 +71,9 @@ public class CheckBond  {
                 System.out.println("Query");
 
                 List<StateAndRef<Bond>> queryResults = getServiceHub().getVaultService().queryBy(Bond.class, criteria1.and(criteria2)).getStates();
+
+                System.out.println("error");
+
                 List<Bond> resultsList = (List<Bond>) queryResults.stream().map(bondState -> bondState.getState().getData());
                 return resultsList;
             } catch (Exception e) {

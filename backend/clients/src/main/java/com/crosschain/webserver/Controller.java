@@ -4,7 +4,6 @@ import com.crosschain.dto.*;
 import com.crosschain.flows.*;
 import com.crosschain.states.Bond;
 import com.crosschain.states.Htlc;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.corda.core.contracts.UniqueIdentifier;
 import net.corda.core.identity.CordaX500Name;
 import net.corda.core.identity.Party;
@@ -15,9 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 import static com.crosschain.utils.PartyUtil.findParty;
@@ -153,15 +150,13 @@ public class Controller {
             Party escrow = findParty(proxy, withdrawHtlc.getEscrow(), false);
 
             Htlc output = (Htlc) proxy.startTrackedFlowDynamic(
-                    TransferBondFlow.TransferBondInitiator.class,
+                    HtlcFlow.HtlcWithdrawInitiator.class,
                     escrow,
                     withdrawHtlc.getHtlcId(),
                     withdrawHtlc.getSecret())
                     .getReturnValue()
-                    .get()
-                    .getTx()
-                    .outputsOfType(Htlc.class)
-                    .get(0);
+                    .get();
+
 
             return ResponseEntity.ok(output);
         } catch (Exception ex) {
@@ -175,7 +170,7 @@ public class Controller {
         try {
             Party escrow = findParty(proxy, request.getEscrow(), false);
 
-            String output = proxy.startTrackedFlowDynamic(
+            Htlc output = proxy.startTrackedFlowDynamic(
                     HtlcFlow.HtlcRefundInitiator.class,
                     escrow,
                     request.getHtlcId())

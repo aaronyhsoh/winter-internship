@@ -1,6 +1,7 @@
 package com.crosschain.flows;
 
 import co.paralleluniverse.fibers.Suspendable;
+import com.crosschain.contracts.BondContract;
 import com.crosschain.contracts.HtlcContract;
 import com.crosschain.states.Bond;
 import com.crosschain.states.Htlc;
@@ -12,10 +13,13 @@ import net.corda.core.identity.Party;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
 import net.corda.core.utilities.UntrustworthyData;
+import org.hibernate.Transaction;
+import org.intellij.lang.annotations.Flow;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 
 import static com.crosschain.utils.hashUtil.generateHash;
@@ -71,12 +75,11 @@ public class HtlcFlow {
             // transfer bond to escrow
             subFlow(new TransferBondFlow.TransferBondInitiator(escrow, bondId));
 
-            System.out.println("Transfer flow completed");
-            
             // transaction builder
             TransactionBuilder txBuilder = new TransactionBuilder(notary)
                     .addOutputState(output, HtlcContract.ID)
-                    .addCommand(new HtlcContract.Commands.Initiated(), Arrays.asList(getOurIdentity().getOwningKey(), receiver.getOwningKey(), escrow.getOwningKey()));
+                    .addCommand(new HtlcContract.Commands.Initiated(),
+                            Arrays.asList(getOurIdentity().getOwningKey(), receiver.getOwningKey(), escrow.getOwningKey()));
 
             System.out.println("Htlc flow" + Arrays.asList(getOurIdentity().getName(), escrow.getName(), receiver.getName()));
 
@@ -119,10 +122,9 @@ public class HtlcFlow {
         }
     }
 
-    // withdraw flow will be initiated by receiver
     @InitiatingFlow
     @StartableByRPC
-    public static class HtlcWithdrawInitiator extends FlowLogic<String> {
+    public static class HtlcWithdrawInitiator extends FlowLogic<Htlc> {
 
         private final Party escrow;
         private final String htlcId;
@@ -136,15 +138,13 @@ public class HtlcFlow {
 
         @Override
         @Suspendable
-        public String call() throws FlowException {
+        public Htlc call() throws FlowException {
             FlowSession escrowSession = initiateFlow(escrow);
             LinkedHashMap<String, String> payload = new LinkedHashMap<>();
             payload.put("htlcId", htlcId);
             payload.put("secret", secret);
-            UntrustworthyData<String> result = escrowSession.sendAndReceive(String.class, payload);
-            String output = result.unwrap(data -> {
-                return data;
-            });
+            UntrustworthyData<Htlc> result = escrowSession.sendAndReceive(Htlc.class, payload);
+            Htlc output = result.unwrap(data -> data);
             return output;
         }
     }
@@ -173,6 +173,7 @@ public class HtlcFlow {
                             data1.getState().getData().getHtlcId().equals(htlcId))
                     .findAny()
                     .orElseThrow(() -> new IllegalArgumentException("Htlc state with id " + htlcId + "does not exist"));
+
             Htlc htlcState = stateAndRef.getState().getData();
 
             // verify receiver's identity
@@ -181,7 +182,6 @@ public class HtlcFlow {
                 receiverSession.send("Unable to withdraw, withdrawal can only be invoked by the intended receiver");
                 throw new FlowException("Unable to withdraw, withdrawal can only be invoked by the intended receiver");
             }
-
             int timeout = htlcState.getTimeout();
             int currentTime = (int) Instant.now().getEpochSecond();
 
@@ -196,8 +196,28 @@ public class HtlcFlow {
             String generatedHash = generateHash(secret);
 
             if (hash.equals(generatedHash)) {
-                receiverSession.send("Withdrawal is Successful");
-                return subFlow(new TransferBondFlow.TransferBondInitiator(receiverSession.getCounterparty(), htlcState.getBondId()));
+                final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
+
+                Htlc updatedState = htlcState.updateStatus(Htlc.WITHDRAW_STATUS);
+
+                TransactionBuilder txBuilder = new TransactionBuilder(notary);
+
+                txBuilder.addOutputState(updatedState);
+                txBuilder.addCommand(new HtlcContract.Commands.Withdraw(), Arrays.asList(getOurIdentity().getOwningKey()));
+
+                txBuilder.verify(getServiceHub());
+
+                receiverSession.send(updatedState);
+                final SignedTransaction signedTx = getServiceHub().signInitialTransaction(txBuilder);
+
+                FlowSession senderSession = initiateFlow(htlcState.getSender());
+                FlowSession escrowSession = initiateFlow(htlcState.getEscrow());
+
+                //transfer bond
+                subFlow(new TransferBondFlow.TransferBondInitiator(receiverSession.getCounterparty(), htlcState.getBondId()));
+
+                // escrow and receiver update state
+                return subFlow(new FinalityFlow(signedTx, Arrays.asList(receiverSession, senderSession, escrowSession)));
             } else {
                 throw new FlowException("Incorrect secret");
             }
@@ -206,7 +226,7 @@ public class HtlcFlow {
 
     @InitiatingFlow
     @StartableByRPC
-    public static class HtlcRefundInitiator extends FlowLogic<String> {
+    public static class HtlcRefundInitiator extends FlowLogic<Htlc> {
 
         private final Party escrow;
         private final String htlcId;
@@ -218,10 +238,10 @@ public class HtlcFlow {
 
         @Override
         @Suspendable
-        public String call() throws FlowException {
+        public Htlc call() throws FlowException {
             FlowSession escrowSession = initiateFlow(escrow);
-            UntrustworthyData<String> resultWrapper = escrowSession.sendAndReceive(String.class, htlcId);
-            String result = resultWrapper.unwrap(data -> data);
+            UntrustworthyData<Htlc> resultWrapper = escrowSession.sendAndReceive(Htlc.class, htlcId);
+            Htlc result = resultWrapper.unwrap(data -> data);
             return result;
         }
     }
@@ -229,16 +249,16 @@ public class HtlcFlow {
     @InitiatedBy(HtlcRefundInitiator.class)
     public static class HtlcRefundResponder extends FlowLogic<SignedTransaction> {
 
-        private FlowSession otherPartySession;
+        private FlowSession senderSession;
 
-        public HtlcRefundResponder(FlowSession otherPartySession) {
-            this.otherPartySession = otherPartySession;
+        public HtlcRefundResponder(FlowSession senderSession) {
+            this.senderSession = senderSession;
         }
 
         @Override
         @Suspendable
         public SignedTransaction call() throws FlowException {
-            UntrustworthyData<String> htlcIdWrapper = otherPartySession.receive(String.class);
+            UntrustworthyData<String> htlcIdWrapper = senderSession.receive(String.class);
             String htlcId = htlcIdWrapper.unwrap(data -> data);
 
             StateAndRef<Htlc> stateAndRef = getServiceHub().getVaultService()
@@ -252,7 +272,7 @@ public class HtlcFlow {
             Htlc htlcState = stateAndRef.getState().getData();
 
             //verify initiator identity
-            if (!htlcState.getSender().equals(otherPartySession.getCounterparty())) {
+            if (!htlcState.getSender().equals(senderSession.getCounterparty())) {
                 throw new FlowException("Refund can only be invoked by the sender");
             }
             int timeout = htlcState.getTimeout();
@@ -260,14 +280,34 @@ public class HtlcFlow {
 
             // verify timeout
             if (currentTime <= timeout) {
-                otherPartySession.send("Unable to refund, swap is still valid.");
+                senderSession.send("Unable to refund, swap is still valid.");
                 throw new FlowException("Unable to refund, swap is still valid.");
             }
 
-            UniqueIdentifier bondId = htlcState.getBondId();
-            Party sender = htlcState.getSender();
-            otherPartySession.send("Refund successful");
-            return subFlow(new TransferBondFlow.TransferBondInitiator(sender, bondId));
+            // ==== Build Transaction ====
+            final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
+
+            Htlc updatedState = htlcState.updateStatus(Htlc.REFUNDED_STATUS);
+
+            TransactionBuilder txBuilder = new TransactionBuilder(notary)
+                    .addOutputState(updatedState)
+                    .addCommand(new HtlcContract.Commands.Refund(), Arrays.asList(getOurIdentity().getOwningKey()));
+
+            txBuilder.verify(getServiceHub());
+
+            final SignedTransaction signedTx = getServiceHub().signInitialTransaction(txBuilder);
+
+            // transfer bond
+            subFlow(new TransferBondFlow.TransferBondInitiator(htlcState.getSender(),  htlcState.getBondId()));
+
+            // send updated state to htlc sender
+            senderSession.send(updatedState);
+
+            // nodes to update state
+            FlowSession escrowSession = initiateFlow(htlcState.getEscrow());
+            FlowSession receiverSession = initiateFlow(htlcState.getReceiver());
+            return subFlow(new FinalityFlow(signedTx, Arrays.asList(senderSession, receiverSession, escrowSession)));
+
         }
     }
 

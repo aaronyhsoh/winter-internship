@@ -21,7 +21,6 @@ public class Htlc implements ContractState {
     private Party receiver;
     private Party escrow;
     private int timeout;
-    private String key;
     private String hash;
     private int amount;
     private String currency;
@@ -31,7 +30,7 @@ public class Htlc implements ContractState {
     public static final String WITHDRAW_STATUS = "WITHDRAW";
     public static final String REFUNDED_STATUS = "REFUNDED";
 
-
+    @ConstructorForDeserialization
     public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency, String status) {
         this.htlcId = htlcId;
         this.bondId = bondId;
@@ -39,21 +38,6 @@ public class Htlc implements ContractState {
         this.receiver = receiver;
         this.escrow = escrow;
         this.timeout = timeout;
-        this.hash = hash;
-        this.amount = amount;
-        this.currency = currency;
-        this.status = status;
-    }
-
-    @ConstructorForDeserialization
-    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String key, String hash,  int amount, String currency, String status) {
-        this.htlcId = htlcId;
-        this.bondId = bondId;
-        this.sender = sender;
-        this.receiver = receiver;
-        this.escrow = escrow;
-        this.timeout = timeout;
-        this.key = key;
         this.hash = hash;
         this.amount = amount;
         this.currency = currency;
@@ -82,10 +66,6 @@ public class Htlc implements ContractState {
         return timeout;
     }
 
-    public String getKey() {
-        return key;
-    }
-
     public String getHash() {
         return hash;
     }
@@ -108,5 +88,10 @@ public class Htlc implements ContractState {
 
     public String getStatus() {
         return status;
+    }
+
+    public Htlc updateStatus(String newStatus) {
+        Htlc output = new Htlc(htlcId,  bondId,  sender,  receiver,  escrow,  timeout,  hash,  amount,  currency, newStatus);
+        return output;
     }
 }
