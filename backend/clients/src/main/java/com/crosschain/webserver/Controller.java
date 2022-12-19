@@ -1,10 +1,7 @@
 package com.crosschain.webserver;
 
 import com.crosschain.dto.*;
-import com.crosschain.flows.CheckBond;
-import com.crosschain.flows.CreateAndIssueBond;
-import com.crosschain.flows.HtlcFlow;
-import com.crosschain.flows.TransferBondFlow;
+import com.crosschain.flows.*;
 import com.crosschain.states.Bond;
 import com.crosschain.states.Htlc;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -103,7 +101,20 @@ public class Controller {
            System.out.println("Exception: " + ex.getMessage());
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
        }
+    }
 
+    @RequestMapping(value="/bond/holder", method=RequestMethod.GET)
+    public ResponseEntity<Object> getHoldingBonds() {
+        try {
+            List<Bond> output = (List<Bond>) proxy.startTrackedFlowDynamic(CheckBond.CheckHoldingBonds.class)
+                    .getReturnValue()
+                    .get();
+
+            return ResponseEntity.ok(output);
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
     }
 
     @RequestMapping(value = "/htlc/bond/initiate", method=RequestMethod.POST)
@@ -178,5 +189,17 @@ public class Controller {
         }
     }
 
+    @RequestMapping(value="/htlc", method=RequestMethod.GET)
+    public ResponseEntity<Object> getHtlcById(@RequestParam String id) {
+        try {
+            Htlc output = (Htlc) proxy.startTrackedFlowDynamic(CheckHtlc.CheckHtlcById.class, id)
+                    .getReturnValue()
+                    .get();
 
+            return ResponseEntity.ok(output);
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
+    }
 }

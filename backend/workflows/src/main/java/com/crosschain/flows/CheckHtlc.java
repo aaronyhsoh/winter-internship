@@ -15,8 +15,8 @@ public class CheckHtlc {
     public static class CheckHtlcById extends FlowLogic<Htlc> {
         private String htlcId;
 
-        public CheckHtlcById(String bondId) {
-            this.htlcId = bondId;
+        public CheckHtlcById(String htlcId) {
+            this.htlcId = htlcId;
         }
 
         @Override
@@ -28,7 +28,7 @@ public class CheckHtlc {
                     .stream().filter(data1 ->
                             data1.getState().getData().getHtlcId().equals(htlcId))
                     .findAny()
-                    .orElseThrow(() -> new IllegalArgumentException("Bond state with the id " + htlcId + "does not exist"));
+                    .orElseThrow(() -> new IllegalArgumentException("Htlc with the id " + htlcId + "does not exist"));
             Htlc htlcState = htlcStateAndRef.getState().getData();
             return htlcState;
         }

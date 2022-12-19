@@ -79,3 +79,1046 @@
 [INFO ] 2022-12-19T02:13:11,260 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
 [WARN ] 2022-12-19T02:13:11,262 [Thread-3 (ActiveMQ-client-factory-threads-775911842)] client - AMQ212004: Failed to connect to server.
 [ERROR] 2022-12-19T02:13:11,263 [Thread-3 (ActiveMQ-client-factory-threads-775911842)] RPCClientProxyHandler - Could not reconnect to the RPC server.
+[INFO ] 2022-12-19T03:31:00,082 [main] Starter - Starting Starter on ruth-VirtualBox with PID 11816 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-19T03:31:00,096 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-19T03:31:00,239 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 11:31:00 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T03:31:02,202 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-19T03:31:02,220 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T03:31:02,231 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-19T03:31:02,232 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-19T03:31:02,246 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-19T03:31:02,485 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-19T03:31:02,486 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 2248 ms
+[INFO ] 2022-12-19T03:31:02,627 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-19T03:31:02,631 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-19T03:31:02,632 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-19T03:31:02,632 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-19T03:31:02,632 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-19T03:31:07,196 [main] RPCClient - Startup took 1743 msec
+[INFO ] 2022-12-19T03:31:08,026 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T03:31:08,216 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 11:31:00 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T03:31:08,317 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-19T03:31:08,320 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-19T03:31:08,320 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-19T03:31:08,321 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-19T03:31:08,321 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-19T03:31:08,322 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-19T03:31:08,322 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-19T03:31:08,323 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-19T03:31:08,325 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-19T03:31:08,327 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-19T03:31:08,349 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T03:31:08,350 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T03:31:08,387 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-19T03:31:08,497 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-19T03:31:08,515 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T03:31:08,531 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-19T03:31:08,570 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-19T03:31:08,576 [main] Starter - Started Starter in 10.032 seconds (JVM running for 11.455)
+[INFO ] 2022-12-19T03:32:50,399 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-19T03:32:50,400 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-19T03:32:50,439 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms
+[INFO ] 2022-12-19T03:38:38,262 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 11:31:00 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T03:38:38,268 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-19T05:32:23,062 [main] Starter - Starting Starter on ruth-VirtualBox with PID 15582 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-19T05:32:23,072 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-19T05:32:23,184 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 13:32:23 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T05:32:24,424 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-19T05:32:24,440 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T05:32:24,448 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-19T05:32:24,449 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-19T05:32:24,458 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-19T05:32:24,573 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-19T05:32:24,574 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1390 ms
+[INFO ] 2022-12-19T05:32:24,686 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-19T05:32:24,690 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-19T05:32:24,690 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-19T05:32:24,690 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-19T05:32:24,691 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-19T05:32:27,878 [main] RPCClient - Startup took 1222 msec
+[INFO ] 2022-12-19T05:32:28,459 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T05:32:28,569 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 13:32:23 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T05:32:28,631 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-19T05:32:28,632 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-19T05:32:28,633 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-19T05:32:28,633 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-19T05:32:28,633 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-19T05:32:28,634 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-19T05:32:28,634 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-19T05:32:28,634 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-19T05:32:28,636 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-19T05:32:28,637 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-19T05:32:28,661 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T05:32:28,662 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T05:32:28,711 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-19T05:32:28,851 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-19T05:32:28,873 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T05:32:28,887 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-19T05:32:28,976 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-19T05:32:28,990 [main] Starter - Started Starter in 6.9 seconds (JVM running for 7.883)
+[INFO ] 2022-12-19T05:32:33,468 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-19T05:32:33,468 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-19T05:32:33,486 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+[WARN ] 2022-12-19T05:32:52,936 [Thread-1 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:32:52,959 [Thread-1 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:32:52,966 [Thread-1 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:32:52,970 [Thread-1 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:33:50,312 [Thread-0 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:33:50,316 [Thread-0 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:33:50,334 [Thread-0 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:33:50,352 [Thread-0 (ActiveMQ-client-factory-threads-52354732)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T05:51:47,712 [Thread-4 (ActiveMQ-client-factory-threads-52354732)] RPCClientProxyHandler - Terminating observables.
+[INFO ] 2022-12-19T05:51:47,950 [Thread-4 (ActiveMQ-client-factory-threads-52354732)] RPCClientProxyHandler - RPC server available.
+[INFO ] 2022-12-19T05:51:49,127 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 13:32:23 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T05:51:49,130 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-19T05:59:18,654 [main] Starter - Starting Starter on ruth-VirtualBox with PID 21523 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-19T05:59:18,659 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-19T05:59:18,724 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 13:59:18 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T05:59:19,708 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-19T05:59:19,734 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T05:59:19,752 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-19T05:59:19,752 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-19T05:59:19,770 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-19T05:59:19,890 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-19T05:59:19,890 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1166 ms
+[INFO ] 2022-12-19T05:59:19,995 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-19T05:59:19,999 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-19T05:59:20,000 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-19T05:59:20,000 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-19T05:59:20,000 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-19T05:59:22,661 [main] RPCClient - Startup took 1072 msec
+[INFO ] 2022-12-19T05:59:23,224 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T05:59:23,347 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 13:59:18 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T05:59:23,415 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-19T05:59:23,416 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-19T05:59:23,416 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-19T05:59:23,417 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-19T05:59:23,417 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-19T05:59:23,417 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-19T05:59:23,417 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-19T05:59:23,418 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-19T05:59:23,420 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-19T05:59:23,421 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-19T05:59:23,441 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T05:59:23,441 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T05:59:23,495 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-19T05:59:23,653 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-19T05:59:23,664 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T05:59:23,677 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-19T05:59:23,702 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-19T05:59:23,706 [main] Starter - Started Starter in 5.769 seconds (JVM running for 6.538)
+[INFO ] 2022-12-19T05:59:58,584 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-19T05:59:58,585 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-19T05:59:58,610 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+[WARN ] 2022-12-19T06:00:17,270 [Thread-1 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:00:17,290 [Thread-1 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:00:17,292 [Thread-1 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:00:17,300 [Thread-1 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:03:14,385 [Thread-2 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:03:14,405 [Thread-2 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:03:14,407 [Thread-2 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[WARN ] 2022-12-19T06:03:14,409 [Thread-2 (ActiveMQ-client-factory-threads-1048842522)] ThrowableSerializer - Unexpected exception de-serializing throwable: net.corda.core.node.services.VaultQueryException. Converting to CordaRuntimeException.
+java.lang.reflect.InvocationTargetException: null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_351]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_351]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_351]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_351]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:77) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.custom.ThrowableSerializer.fromProxy(ThrowableSerializer.kt:14) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.fromProxy(CustomSerializer.kt:182) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:200) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DescribedTypeReadStrategy.readProperty(ComposableTypePropertySerializer.kt:203) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableTypePropertySerializer.readProperty(ComposableTypePropertySerializer.kt) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:172) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader$readObject$$inlined$ifThrowsAppend$lambda$1.invoke(ObjectSerializer.kt:154) ~[corda-serialization-4.9.jar:?]
+	at kotlin.sequences.TransformingSequence$iterator$1.next(Sequences.kt:149) ~[kotlin-stdlib-1.2.71.jar:1.2.71-release-64 (1.2.71)]
+	at net.corda.serialization.internal.amqp.ComposableObjectReader.readObject(ObjectSerializer.kt:252) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.ComposableObjectSerializer.readObject(ObjectSerializer.kt:117) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.CustomSerializer$Proxy.readObject(CustomSerializer.kt:199) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObject(DeserializationInput.kt:202) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.readObjectOrNull(DeserializationInput.kt:167) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.doReadObject(DeserializationInput.kt:157) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.access$doReadObject(DeserializationInput.kt:40) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput$deserialize$1.invoke(DeserializationInput.kt:142) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.des(DeserializationInput.kt:105) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.DeserializationInput.deserialize(DeserializationInput.kt:125) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.amqp.AbstractAMQPSerializationScheme.deserialize(AMQPSerializationScheme.kt:151) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.withCurrentContext(SerializationAPI.kt:78) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl$deserialize$1.invoke(SerializationScheme.kt:86) ~[corda-serialization-4.9.jar:?]
+	at net.corda.core.serialization.SerializationFactory.asCurrent(SerializationAPI.kt:93) ~[corda-core-4.9.jar:?]
+	at net.corda.serialization.internal.SerializationFactoryImpl.deserialize(SerializationScheme.kt:124) ~[corda-serialization-4.9.jar:?]
+	at net.corda.nodeapi.RPCApi$ServerToClient$Companion.fromClientMessage(RPCApi.kt:380) ~[corda-node-api-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.artemisMessageHandler(RPCClientProxyHandler.kt:410) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler.access$artemisMessageHandler(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:652) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandler$initSessions$2.invoke(RPCClientProxyHandler.kt:101) ~[corda-rpc-4.9.jar:?]
+	at net.corda.client.rpc.internal.RPCClientProxyHandlerKt$sam$org_apache_activemq_artemis_api_core_client_MessageHandler$0.onMessage(RPCClientProxyHandler.kt) ~[corda-rpc-4.9.jar:?]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:1009) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:49) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1129) ~[artemis-core-client-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:42) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.OrderedExecutor.doTask(OrderedExecutor.java:31) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at org.apache.activemq.artemis.utils.actors.ProcessorBase.executePendingTasks(ProcessorBase.java:65) ~[artemis-commons-2.19.1.jar:2.19.1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at org.apache.activemq.artemis.utils.ActiveMQThreadFactory$1.run(ActiveMQThreadFactory.java:118) [artemis-commons-2.19.1.jar:2.19.1]
+Caused by: java.lang.IllegalArgumentException: Parameter specified as non-null is null: method net.corda.core.node.services.VaultQueryException.<init>, parameter description
+	at net.corda.core.node.services.VaultQueryException.<init>(VaultService.kt) ~[corda-core-4.9.jar:?]
+	... 47 more
+[INFO ] 2022-12-19T06:05:23,946 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 13:59:18 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T06:05:23,948 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-19T06:17:45,654 [main] Starter - Starting Starter on ruth-VirtualBox with PID 24608 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-19T06:17:45,664 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-19T06:17:45,716 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 14:17:45 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T06:17:46,720 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-19T06:17:46,735 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T06:17:46,743 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-19T06:17:46,743 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-19T06:17:46,752 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-19T06:17:46,845 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-19T06:17:46,845 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1132 ms
+[INFO ] 2022-12-19T06:17:46,969 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-19T06:17:46,972 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-19T06:17:46,973 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-19T06:17:46,973 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-19T06:17:46,973 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-19T06:17:49,958 [main] RPCClient - Startup took 1242 msec
+[INFO ] 2022-12-19T06:17:50,518 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T06:17:50,753 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 14:17:45 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T06:17:50,895 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-19T06:17:50,896 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-19T06:17:50,897 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-19T06:17:50,897 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-19T06:17:50,898 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-19T06:17:50,898 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-19T06:17:50,898 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-19T06:17:50,899 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-19T06:17:50,901 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-19T06:17:50,902 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-19T06:17:50,934 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T06:17:50,934 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T06:17:50,981 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-19T06:17:51,096 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-19T06:17:51,110 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T06:17:51,121 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-19T06:17:51,159 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-19T06:17:51,165 [main] Starter - Started Starter in 6.326 seconds (JVM running for 7.059)
+[WARN ] 2022-12-19T06:27:48,392 [Thread-1 (ActiveMQ-client-factory-threads-1169894049)] RPCClientProxyHandler - Terminating observables.
+[INFO ] 2022-12-19T06:27:48,538 [Thread-1 (ActiveMQ-client-factory-threads-1169894049)] RPCClientProxyHandler - RPC server available.
+[INFO ] 2022-12-19T06:52:23,109 [http-nio-10051-exec-4] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-19T06:52:23,109 [http-nio-10051-exec-4] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-19T06:52:23,131 [http-nio-10051-exec-4] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 22 ms
+[WARN ] 2022-12-19T06:57:14,837 [Thread-4 (ActiveMQ-client-factory-threads-1169894049)] client - AMQ212037: Connection failure to localhost/127.0.0.1:10006 has been detected: AMQ219015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+[WARN ] 2022-12-19T06:57:14,840 [Thread-4 (ActiveMQ-client-factory-threads-1169894049)] RPCClientProxyHandler - Terminating observables.
+[INFO ] 2022-12-19T06:57:21,900 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 14:17:45 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T06:57:21,902 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[WARN ] 2022-12-19T06:57:21,906 [Thread-4 (ActiveMQ-client-factory-threads-1169894049)] client - AMQ212004: Failed to connect to server.
+[ERROR] 2022-12-19T06:57:21,907 [Thread-4 (ActiveMQ-client-factory-threads-1169894049)] RPCClientProxyHandler - Could not reconnect to the RPC server.
+[INFO ] 2022-12-19T07:42:15,922 [main] Starter - Starting Starter on ruth-VirtualBox with PID 5090 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-19T07:42:15,927 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-19T07:42:15,970 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 15:42:15 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T07:42:16,959 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-19T07:42:16,972 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T07:42:16,980 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-19T07:42:16,981 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-19T07:42:16,992 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-19T07:42:17,095 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-19T07:42:17,095 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1125 ms
+[INFO ] 2022-12-19T07:42:17,210 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-19T07:42:17,214 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-19T07:42:17,216 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-19T07:42:17,217 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-19T07:42:17,217 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-19T07:42:19,969 [main] RPCClient - Startup took 917 msec
+[INFO ] 2022-12-19T07:42:20,500 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T07:42:20,605 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Mon Dec 19 15:42:15 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-19T07:42:20,666 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-19T07:42:20,667 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-19T07:42:20,667 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-19T07:42:20,668 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-19T07:42:20,668 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-19T07:42:20,668 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-19T07:42:20,668 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-19T07:42:20,668 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-19T07:42:20,670 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-19T07:42:20,671 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-19T07:42:20,691 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T07:42:20,692 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-19T07:42:20,744 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-19T07:42:20,832 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-19T07:42:20,844 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-19T07:42:20,852 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-19T07:42:20,871 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-19T07:42:20,875 [main] Starter - Started Starter in 5.662 seconds (JVM running for 6.536)
+[INFO ] 2022-12-19T07:43:09,583 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-19T07:43:09,585 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-19T07:43:09,610 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
