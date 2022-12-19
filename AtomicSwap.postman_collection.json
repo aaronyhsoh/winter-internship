@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"bondId\": \"79650f36-57b9-4a53-95a6-99c38779eaef\", \n    \"receiver\": \"PartyB\", \n    \"escrow\": \"Escrow\", \n    \"timeout\": 30000, \n    \"currency\": \"eth\", \n    \"amount\": 1, \n    \"hash\": \"9f731fd7b8b451ac939beef4c590867cc42a7831a306a3221a42800c6b6de388\"\n}",
+					"raw": "{\n    \"bondId\": \"7ec9fdfa-985b-45be-a5f0-5b09cce05aec\", \n    \"receiver\": \"PartyB\", \n    \"escrow\": \"Escrow\", \n    \"timeout\": 30000, \n    \"currency\": \"eth\", \n    \"amount\": 1, \n    \"hash\": \"9f731fd7b8b451ac939beef4c590867cc42a7831a306a3221a42800c6b6de388\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,6 +112,58 @@
 						"withdraw"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "RefundBondHtlc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"escrow\": \"Escrow\",\n    \"htlcId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/htlc/bond/refund",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"bond",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBondById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetHoldingBonds",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetHtlcById",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
