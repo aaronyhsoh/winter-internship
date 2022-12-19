@@ -100,7 +100,7 @@ public class Controller {
 
             return ResponseEntity.ok(output);
        } catch (Exception ex) {
-           System.out.println("Exception: " + ex.getStackTrace());
+           System.out.println("Exception: " + ex.getMessage());
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
        }
 
