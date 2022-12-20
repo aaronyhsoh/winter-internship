@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "de3b3c09-96ca-4ab2-96f8-ed2ac8ac6e22",
+		"name": "AtomicSwap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateBond",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bondName\": \"bondC\",\n    \"faceValue\": 100,\n    \"couponRate\": 5,\n    \"yearsToMature\": 2, \n    \"paymentInterval\": 0.5,\n    \"holder\": \"PartyB\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/bond/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bond",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BondHtlcRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bondId\": \"7ec9fdfa-985b-45be-a5f0-5b09cce05aec\", \n    \"receiver\": \"PartyB\", \n    \"escrow\": \"Escrow\", \n    \"timeout\": 30000, \n    \"currency\": \"eth\", \n    \"amount\": 1, \n    \"hash\": \"9f731fd7b8b451ac939beef4c590867cc42a7831a306a3221a42800c6b6de388\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/htlc/bond/initiate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"bond",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransferBond",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": \"PartyB\",\n    \"bondId\": \"2df696a3-d040-4738-9325-79bb13961f9a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/bond/transfer",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bond",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WithdrawBondHtlc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"escrow\": \"Escrow\", \n    \"htlcId\": 1,\n    \"secret\": \"i like to party\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/htlc/bond/withdraw",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"bond",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RefundBondHtlc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"escrow\": \"Escrow\",\n    \"htlcId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/htlc/bond/refund",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"bond",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBondById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetHoldingBonds",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetHtlcById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:10051",
+			"type": "default"
+		}
+	]
+}
