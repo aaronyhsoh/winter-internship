@@ -175,7 +175,10 @@ public class Controller {
                     escrow,
                     request.getHtlcId())
                     .getReturnValue()
-                    .get();
+                    .get()
+                    .getTx()
+                    .outputsOfType(Htlc.class)
+                    .get(0);
 
             return ResponseEntity.ok(output);
         } catch (Exception ex) {
