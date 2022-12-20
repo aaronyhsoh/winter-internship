@@ -150,12 +150,15 @@ public class Controller {
             Party escrow = findParty(proxy, withdrawHtlc.getEscrow(), false);
 
             Htlc output = (Htlc) proxy.startTrackedFlowDynamic(
-                    HtlcFlow.HtlcWithdrawInitiator.class,
+                    WithdrawHtlcFlow.HtlcWithdrawInitiator.class,
                     escrow,
                     withdrawHtlc.getHtlcId(),
                     withdrawHtlc.getSecret())
                     .getReturnValue()
-                    .get();
+                    .get()
+                    .getTx()
+                    .outputsOfType(Htlc.class)
+                    .get(0);
 
 
             return ResponseEntity.ok(output);
@@ -171,7 +174,7 @@ public class Controller {
             Party escrow = findParty(proxy, request.getEscrow(), false);
 
             Htlc output = proxy.startTrackedFlowDynamic(
-                    HtlcFlow.HtlcRefundInitiator.class,
+                    RefundHtlcFlow.HtlcRefundInitiator.class,
                     escrow,
                     request.getHtlcId())
                     .getReturnValue()
