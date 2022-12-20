@@ -3,13 +3,13 @@ import CreateBondForm from '../components/bonds/CreateBondForm';
 
 function NewBondPage(){
     function createBondHandler(bondData){
-        fetch(
-            ''
-            {
-                method: 
-            }
+        // fetch(
+        //     ''
+        //     {
+        //         method: 
+        //     }
 
-        );
+        // );
 
         
     }
