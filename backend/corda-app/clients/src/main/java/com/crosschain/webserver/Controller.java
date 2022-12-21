@@ -103,7 +103,7 @@ public class Controller {
     @RequestMapping(value="/bond/holder", method=RequestMethod.GET)
     public ResponseEntity<Object> getHoldingBonds() {
         try {
-            List<Bond> output = (List<Bond>) proxy.startTrackedFlowDynamic(CreateAndIssueBond.CheckHoldingBonds.class)
+            List<Bond> output = (List<Bond>) proxy.startTrackedFlowDynamic(CheckBond.CheckHoldingBonds.class)
                     .getReturnValue()
                     .get();
 
@@ -197,6 +197,20 @@ public class Controller {
     public ResponseEntity<Object> getHtlcById(@RequestParam String id) {
         try {
             Htlc output = (Htlc) proxy.startTrackedFlowDynamic(CheckHtlc.CheckHtlcById.class, id)
+                    .getReturnValue()
+                    .get();
+
+            return ResponseEntity.ok(output);
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
+    }
+
+    @RequestMapping(value="/htlc/getAll", method=RequestMethod.GET)
+    public ResponseEntity<Object> getAllHtlc() {
+        try {
+            List<Htlc> output = (List<Htlc>) proxy.startTrackedFlowDynamic(CheckHtlc.CheckAllHtlc.class)
                     .getReturnValue()
                     .get();
 

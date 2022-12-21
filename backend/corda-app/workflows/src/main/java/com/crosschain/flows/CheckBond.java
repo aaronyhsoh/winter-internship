@@ -2,19 +2,18 @@ package com.crosschain.flows;
 
 import co.paralleluniverse.fibers.Suspendable;
 import com.crosschain.states.Bond;
+import net.corda.core.contracts.LinearState;
 import net.corda.core.contracts.StateAndRef;
 import net.corda.core.flows.FlowException;
 import net.corda.core.flows.FlowLogic;
 import net.corda.core.flows.InitiatingFlow;
 import net.corda.core.flows.StartableByRPC;
 import net.corda.core.node.services.Vault;
-import net.corda.core.node.services.vault.Builder;
-import net.corda.core.node.services.vault.CriteriaExpression;
-import net.corda.core.node.services.vault.FieldInfo;
-import net.corda.core.node.services.vault.QueryCriteria;
+import net.corda.core.node.services.vault.*;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static net.corda.core.node.services.vault.QueryCriteriaUtils.getField;
 
@@ -55,30 +54,38 @@ public class CheckBond  {
         @Override
         @Suspendable
         public List<Bond> call() throws FlowException {
-            try {
-                //query unconsumed states
-                QueryCriteria.LinearStateQueryCriteria criteria1 = new QueryCriteria.LinearStateQueryCriteria()
-                    .withStatus(Vault.StateStatus.UNCONSUMED)
-                    .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
+            List<Bond> results = getServiceHub().getVaultService()
+                    .queryBy(Bond.class)
+                    .getStates()
+                    .stream()
+                    .filter(data -> data.getState().getData().getHolder().equals(getOurIdentity()))
+                    .map(bondState -> bondState.getState().getData())
+                    .collect(Collectors.toList());
 
-                System.out.println("Get Field");
-
-                // query holder
-                FieldInfo bondHolder = getField("holder", Bond.class);
-                CriteriaExpression verifyHolder = Builder.equal(bondHolder, getOurIdentity());
-                QueryCriteria criteria2 = new QueryCriteria.VaultCustomQueryCriteria(verifyHolder);
-
-                System.out.println("Query");
-
-                List<StateAndRef<Bond>> queryResults = getServiceHub().getVaultService().queryBy(Bond.class, criteria1.and(criteria2)).getStates();
-
-                System.out.println("error");
-
-                List<Bond> resultsList = (List<Bond>) queryResults.stream().map(bondState -> bondState.getState().getData());
-                return resultsList;
-            } catch (Exception e) {
-                throw new FlowException(e.getMessage());
-            }
+                return results;
+//            try {
+//                QueryCriteria generalCriteria = new QueryCriteria.VaultQueryCriteria(Vault.StateStatus.ALL);
+//
+//                System.out.println("Get Field");
+//
+//                // query holder
+//                FieldInfo bondHolder = getField("holder", Bond.class);
+//                CriteriaExpression verifyHolder = Builder.equal(bondHolder, getOurIdentity());
+//                QueryCriteria criteria2 = new QueryCriteria.VaultCustomQueryCriteria(verifyHolder);
+//
+//                QueryCriteria compositeCriteria = generalCriteria.and(criteria2);
+//                PageSpecification pageSpec = new PageSpecification(1, 20);
+//                System.out.println("Query");
+//
+//                List<StateAndRef<Bond>> queryResults = getServiceHub().getVaultService().queryBy(Bond.class, compositeCriteria, pageSpec).getStates();
+//
+//                System.out.println("error");
+//
+//                List<Bond> resultsList = (List<Bond>) queryResults.stream().map(bondState -> bondState.getState().getData());
+////                return resultsList;
+//            } catch (Exception e) {
+//                throw new FlowException(e.getMessage());
+//            }
        }
     }
 }
