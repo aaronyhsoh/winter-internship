@@ -1,334 +1,456 @@
-[INFO ] 2022-12-20T02:13:49,319 [main] Starter - Starting Starter on ruth-VirtualBox with PID 7087 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T02:13:49,331 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T02:13:49,375 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 10:13:49 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T02:13:50,321 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T02:13:50,335 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T02:13:50,343 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T02:13:50,343 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T02:13:50,351 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T02:13:50,444 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T02:13:50,444 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1069 ms
-[INFO ] 2022-12-20T02:13:50,541 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T02:13:50,544 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T02:13:50,544 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T02:13:50,544 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T02:13:50,545 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T02:13:53,655 [main] RPCClient - Startup took 1247 msec
-[INFO ] 2022-12-20T02:13:54,256 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T02:13:54,395 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 10:13:49 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T02:13:54,490 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T02:13:54,491 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T02:13:54,492 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T02:13:54,492 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T02:13:54,493 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T02:13:54,493 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T02:13:54,494 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T02:13:54,494 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T02:13:54,497 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T02:13:54,498 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T02:13:54,523 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T02:13:54,523 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T02:13:54,617 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T02:13:54,765 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T02:13:54,782 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T02:13:54,800 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T02:13:54,825 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T02:13:54,830 [main] Starter - Started Starter in 6.161 seconds (JVM running for 6.798)
-[INFO ] 2022-12-20T02:14:28,332 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T02:14:28,333 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T02:14:28,356 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
-[WARN ] 2022-12-20T02:57:49,166 [Thread-9 (ActiveMQ-client-factory-threads-157971930)] RPCClientProxyHandler - Terminating observables.
-[INFO ] 2022-12-20T03:01:21,729 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 10:13:49 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T03:01:21,730 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[WARN ] 2022-12-20T03:01:21,732 [Thread-9 (ActiveMQ-client-factory-threads-157971930)] client - AMQ212004: Failed to connect to server.
-[ERROR] 2022-12-20T03:01:21,733 [Thread-9 (ActiveMQ-client-factory-threads-157971930)] RPCClientProxyHandler - Could not reconnect to the RPC server.
-[INFO ] 2022-12-20T06:13:07,274 [main] Starter - Starting Starter on ruth-VirtualBox with PID 17816 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T06:13:07,280 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T06:13:07,336 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:13:07 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:13:08,326 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T06:13:08,352 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T06:13:08,372 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T06:13:08,373 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T06:13:08,395 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T06:13:08,528 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T06:13:08,529 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1194 ms
-[INFO ] 2022-12-20T06:13:08,671 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T06:13:08,679 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T06:13:08,680 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T06:13:08,680 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T06:13:08,681 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T06:13:12,146 [main] RPCClient - Startup took 1591 msec
-[INFO ] 2022-12-20T06:13:12,891 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:13:13,042 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:13:07 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:13:13,140 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T06:13:13,142 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T06:13:13,142 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T06:13:13,142 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T06:13:13,143 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T06:13:13,143 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T06:13:13,143 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T06:13:13,144 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T06:13:13,146 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T06:13:13,147 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T06:13:13,165 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:13:13,165 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:13:13,201 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T06:13:13,310 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T06:13:13,322 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T06:13:13,340 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T06:13:13,384 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T06:13:13,392 [main] Starter - Started Starter in 6.824 seconds (JVM running for 7.582)
-[INFO ] 2022-12-20T06:15:33,397 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:13:07 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:15:33,402 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[INFO ] 2022-12-20T06:15:42,411 [main] Starter - Starting Starter on ruth-VirtualBox with PID 18455 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T06:15:42,420 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T06:15:42,460 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:15:42 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:15:43,657 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T06:15:43,691 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T06:15:43,711 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T06:15:43,712 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T06:15:43,730 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T06:15:43,878 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T06:15:43,878 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1418 ms
-[INFO ] 2022-12-20T06:15:44,015 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T06:15:44,018 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T06:15:44,019 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T06:15:44,019 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T06:15:44,019 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T06:15:46,594 [main] RPCClient - Startup took 876 msec
-[INFO ] 2022-12-20T06:15:47,085 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:15:47,197 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:15:42 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:15:47,267 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T06:15:47,269 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T06:15:47,269 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T06:15:47,270 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T06:15:47,270 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T06:15:47,270 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T06:15:47,271 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T06:15:47,271 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T06:15:47,273 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T06:15:47,274 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T06:15:47,291 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:15:47,291 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:15:47,337 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T06:15:47,412 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T06:15:47,429 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T06:15:47,436 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T06:15:47,498 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T06:15:47,501 [main] Starter - Started Starter in 5.847 seconds (JVM running for 6.811)
-[INFO ] 2022-12-20T06:16:45,840 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T06:16:45,842 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T06:16:45,871 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
-[INFO ] 2022-12-20T06:29:42,367 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:15:42 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:29:42,370 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[INFO ] 2022-12-20T06:45:57,470 [main] Starter - Starting Starter on ruth-VirtualBox with PID 4260 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T06:45:57,476 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T06:45:57,514 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:45:57 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:45:58,841 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T06:45:58,861 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T06:45:58,877 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T06:45:58,878 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T06:45:58,892 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T06:45:59,012 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T06:45:59,012 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1498 ms
-[INFO ] 2022-12-20T06:45:59,141 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T06:45:59,145 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T06:45:59,146 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T06:45:59,147 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T06:45:59,147 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T06:46:02,802 [main] RPCClient - Startup took 1390 msec
-[INFO ] 2022-12-20T06:46:03,519 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:46:03,677 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:45:57 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:46:03,761 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T06:46:03,765 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T06:46:03,767 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T06:46:03,772 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T06:46:03,775 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T06:46:03,776 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T06:46:03,777 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T06:46:03,782 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T06:46:03,789 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T06:46:03,791 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T06:46:03,829 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:46:03,830 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T06:46:03,882 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T06:46:04,003 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T06:46:04,034 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T06:46:04,073 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T06:46:04,149 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T06:46:04,159 [main] Starter - Started Starter in 7.447 seconds (JVM running for 8.457)
-[INFO ] 2022-12-20T06:49:04,755 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T06:49:04,757 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T06:49:04,786 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
-[WARN ] 2022-12-20T06:51:55,997 [Thread-5 (ActiveMQ-client-factory-threads-52354732)] RPCClientProxyHandler - Terminating observables.
-[INFO ] 2022-12-20T06:52:06,664 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 14:45:57 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T06:52:06,665 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[WARN ] 2022-12-20T06:52:06,670 [Thread-5 (ActiveMQ-client-factory-threads-52354732)] client - AMQ212004: Failed to connect to server.
-[ERROR] 2022-12-20T06:52:06,672 [Thread-5 (ActiveMQ-client-factory-threads-52354732)] RPCClientProxyHandler - Could not reconnect to the RPC server.
-[INFO ] 2022-12-20T07:24:16,825 [main] Starter - Starting Starter on ruth-VirtualBox with PID 8579 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T07:24:16,832 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T07:24:16,882 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 15:24:16 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T07:24:17,913 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T07:24:17,929 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T07:24:17,939 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T07:24:17,940 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T07:24:17,949 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T07:24:18,058 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T07:24:18,059 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1177 ms
-[INFO ] 2022-12-20T07:24:18,162 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T07:24:18,167 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T07:24:18,168 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T07:24:18,168 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T07:24:18,168 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T07:24:20,892 [main] RPCClient - Startup took 1014 msec
-[INFO ] 2022-12-20T07:24:21,563 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T07:24:21,690 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 15:24:16 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T07:24:21,753 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T07:24:21,754 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T07:24:21,754 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T07:24:21,754 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T07:24:21,755 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T07:24:21,755 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T07:24:21,755 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T07:24:21,755 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T07:24:21,757 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T07:24:21,758 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T07:24:21,773 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T07:24:21,773 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T07:24:21,820 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T07:24:21,914 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T07:24:21,926 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T07:24:21,935 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T07:24:21,954 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T07:24:21,958 [main] Starter - Started Starter in 5.898 seconds (JVM running for 6.656)
-[INFO ] 2022-12-20T07:25:01,933 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T07:25:01,935 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T07:25:01,964 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
-[WARN ] 2022-12-20T07:36:32,633 [Thread-3 (ActiveMQ-client-factory-threads-1733903473)] RPCClientProxyHandler - Terminating observables.
-[INFO ] 2022-12-20T07:36:32,878 [Thread-3 (ActiveMQ-client-factory-threads-1733903473)] RPCClientProxyHandler - RPC server available.
-[WARN ] 2022-12-20T07:36:43,207 [Thread-3 (ActiveMQ-client-factory-threads-1733903473)] RPCClientProxyHandler - Terminating observables.
-[INFO ] 2022-12-20T07:41:42,062 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 15:24:16 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T07:41:42,066 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[WARN ] 2022-12-20T07:41:42,071 [Thread-3 (ActiveMQ-client-factory-threads-1733903473)] client - AMQ212004: Failed to connect to server.
-[ERROR] 2022-12-20T07:41:42,072 [Thread-3 (ActiveMQ-client-factory-threads-1733903473)] RPCClientProxyHandler - Could not reconnect to the RPC server.
-[INFO ] 2022-12-20T07:52:08,687 [main] Starter - Starting Starter on ruth-VirtualBox with PID 12139 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T07:52:08,692 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T07:52:08,736 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 15:52:08 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T07:52:09,792 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T07:52:09,809 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T07:52:09,823 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T07:52:09,824 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T07:52:09,837 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T07:52:09,931 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T07:52:09,931 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1195 ms
-[INFO ] 2022-12-20T07:52:10,036 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T07:52:10,043 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T07:52:10,044 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T07:52:10,045 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T07:52:10,045 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T07:52:13,493 [main] RPCClient - Startup took 1601 msec
-[INFO ] 2022-12-20T07:52:14,265 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T07:52:14,413 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 15:52:08 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T07:52:14,518 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T07:52:14,520 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T07:52:14,522 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T07:52:14,524 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T07:52:14,524 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T07:52:14,525 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T07:52:14,525 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T07:52:14,526 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T07:52:14,529 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T07:52:14,530 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T07:52:14,555 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T07:52:14,556 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T07:52:14,600 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T07:52:14,699 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T07:52:14,712 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T07:52:14,727 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T07:52:14,759 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T07:52:14,764 [main] Starter - Started Starter in 6.77 seconds (JVM running for 7.585)
-[INFO ] 2022-12-20T07:58:45,313 [http-nio-10051-exec-3] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T07:58:45,314 [http-nio-10051-exec-3] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T07:58:45,347 [http-nio-10051-exec-3] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
-[INFO ] 2022-12-20T08:21:02,301 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 15:52:08 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T08:21:02,303 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[INFO ] 2022-12-20T09:37:36,066 [main] Starter - Starting Starter on ruth-VirtualBox with PID 17307 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T09:37:36,076 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T09:37:36,169 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 17:37:36 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T09:37:37,935 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T09:37:37,956 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T09:37:37,968 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T09:37:37,969 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T09:37:37,983 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T09:37:38,099 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T09:37:38,099 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1930 ms
-[INFO ] 2022-12-20T09:37:38,277 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T09:37:38,281 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T09:37:38,282 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T09:37:38,282 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T09:37:38,282 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T09:37:42,359 [main] RPCClient - Startup took 1241 msec
-[INFO ] 2022-12-20T09:37:42,930 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T09:37:43,038 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 17:37:36 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T09:37:43,161 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T09:37:43,162 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T09:37:43,163 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T09:37:43,163 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T09:37:43,164 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T09:37:43,164 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T09:37:43,164 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T09:37:43,164 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T09:37:43,167 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T09:37:43,168 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T09:37:43,191 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T09:37:43,191 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T09:37:43,255 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T09:37:43,366 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T09:37:43,378 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T09:37:43,391 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T09:37:43,417 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T09:37:43,420 [main] Starter - Started Starter in 8.264 seconds (JVM running for 8.99)
-[INFO ] 2022-12-20T09:39:13,835 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T09:39:13,836 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T09:39:13,852 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
-[INFO ] 2022-12-20T09:44:02,980 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 17:37:36 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T09:44:02,983 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
-[INFO ] 2022-12-20T09:48:13,923 [main] Starter - Starting Starter on ruth-VirtualBox with PID 19430 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
-[INFO ] 2022-12-20T09:48:13,928 [main] Starter - No active profile set, falling back to default profiles: default
-[INFO ] 2022-12-20T09:48:14,001 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 17:48:14 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T09:48:15,421 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
-[INFO ] 2022-12-20T09:48:15,442 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T09:48:15,458 [main] StandardService - Starting service [Tomcat]
-[INFO ] 2022-12-20T09:48:15,459 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
-[INFO ] 2022-12-20T09:48:15,475 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
-[INFO ] 2022-12-20T09:48:15,603 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
-[INFO ] 2022-12-20T09:48:15,604 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1603 ms
-[INFO ] 2022-12-20T09:48:15,738 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
-[INFO ] 2022-12-20T09:48:15,746 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
-[INFO ] 2022-12-20T09:48:15,747 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[INFO ] 2022-12-20T09:48:15,748 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[INFO ] 2022-12-20T09:48:15,748 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
-[INFO ] 2022-12-20T09:48:18,621 [main] RPCClient - Startup took 987 msec
-[INFO ] 2022-12-20T09:48:19,134 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T09:48:19,238 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Tue Dec 20 17:48:14 SGT 2022]; root of context hierarchy
-[INFO ] 2022-12-20T09:48:19,305 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
-[INFO ] 2022-12-20T09:48:19,306 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
-[INFO ] 2022-12-20T09:48:19,307 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
-[INFO ] 2022-12-20T09:48:19,307 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
-[INFO ] 2022-12-20T09:48:19,308 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
-[INFO ] 2022-12-20T09:48:19,310 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
-[INFO ] 2022-12-20T09:48:19,311 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
-[INFO ] 2022-12-20T09:48:19,312 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
-[INFO ] 2022-12-20T09:48:19,315 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[INFO ] 2022-12-20T09:48:19,315 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[INFO ] 2022-12-20T09:48:19,334 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T09:48:19,334 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[INFO ] 2022-12-20T09:48:19,380 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-[INFO ] 2022-12-20T09:48:19,475 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-[INFO ] 2022-12-20T09:48:19,488 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
-[INFO ] 2022-12-20T09:48:19,497 [main] NioSelectorPool - Using a shared selector for servlet write/read
-[INFO ] 2022-12-20T09:48:19,516 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
-[INFO ] 2022-12-20T09:48:19,520 [main] Starter - Started Starter in 6.33 seconds (JVM running for 7.179)
-[INFO ] 2022-12-20T09:48:30,260 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-[INFO ] 2022-12-20T09:48:30,261 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-[INFO ] 2022-12-20T09:48:30,277 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+[INFO ] 2022-12-21T01:13:48,919 [main] Starter - Starting Starter on ruth-VirtualBox with PID 4528 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T01:13:48,929 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T01:13:48,986 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 09:13:48 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T01:13:50,083 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T01:13:50,101 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T01:13:50,112 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T01:13:50,113 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T01:13:50,122 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T01:13:50,239 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T01:13:50,239 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1253 ms
+[INFO ] 2022-12-21T01:13:50,358 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T01:13:50,362 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T01:13:50,362 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T01:13:50,363 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T01:13:50,363 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T01:13:53,140 [main] RPCClient - Startup took 988 msec
+[INFO ] 2022-12-21T01:13:53,679 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T01:13:53,820 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 09:13:48 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T01:13:53,904 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T01:13:53,906 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T01:13:53,907 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T01:13:53,908 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T01:13:53,910 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T01:13:53,911 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T01:13:53,911 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T01:13:53,912 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T01:13:53,914 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T01:13:53,915 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T01:13:53,936 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T01:13:53,937 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T01:13:54,002 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T01:13:54,112 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T01:13:54,132 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T01:13:54,142 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T01:13:54,180 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T01:13:54,187 [main] Starter - Started Starter in 5.966 seconds (JVM running for 6.69)
+[INFO ] 2022-12-21T01:14:03,156 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T01:14:03,156 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T01:14:03,178 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+[WARN ] 2022-12-21T01:39:45,150 [Thread-3 (ActiveMQ-client-factory-threads-157971930)] client - AMQ212037: Connection failure to localhost/127.0.0.1:10006 has been detected: AMQ219015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+[WARN ] 2022-12-21T01:39:45,161 [Thread-3 (ActiveMQ-client-factory-threads-157971930)] RPCClientProxyHandler - Terminating observables.
+[INFO ] 2022-12-21T01:40:09,898 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 09:13:48 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T01:40:09,904 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[WARN ] 2022-12-21T01:40:09,908 [Thread-3 (ActiveMQ-client-factory-threads-157971930)] client - AMQ212004: Failed to connect to server.
+[ERROR] 2022-12-21T01:40:09,909 [Thread-3 (ActiveMQ-client-factory-threads-157971930)] RPCClientProxyHandler - Could not reconnect to the RPC server.
+[INFO ] 2022-12-21T02:13:07,275 [main] Starter - Starting Starter on ruth-VirtualBox with PID 9188 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T02:13:07,285 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T02:13:07,354 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:13:07 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:13:08,856 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T02:13:08,883 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:13:08,894 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T02:13:08,894 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T02:13:08,905 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T02:13:09,073 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T02:13:09,073 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1720 ms
+[INFO ] 2022-12-21T02:13:09,237 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T02:13:09,245 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T02:13:09,246 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T02:13:09,246 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T02:13:09,246 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T02:13:13,491 [main] RPCClient - Startup took 1618 msec
+[INFO ] 2022-12-21T02:13:14,383 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:13:14,567 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:13:07 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:13:14,714 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T02:13:14,715 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T02:13:14,715 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T02:13:14,716 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T02:13:14,716 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T02:13:14,716 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T02:13:14,716 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T02:13:14,717 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T02:13:14,720 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T02:13:14,722 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T02:13:14,749 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:13:14,750 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:13:14,820 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T02:13:15,002 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T02:13:15,022 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:13:15,056 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T02:13:15,149 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T02:13:15,156 [main] Starter - Started Starter in 8.955 seconds (JVM running for 10.029)
+[INFO ] 2022-12-21T02:13:23,352 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T02:13:23,352 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T02:13:23,381 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+[INFO ] 2022-12-21T02:27:04,131 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:13:07 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:27:04,134 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T02:27:13,987 [main] Starter - Starting Starter on ruth-VirtualBox with PID 10550 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T02:27:13,992 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T02:27:14,030 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:27:14 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:27:15,030 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T02:27:15,044 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:27:15,054 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T02:27:15,055 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T02:27:15,063 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T02:27:15,169 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T02:27:15,169 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1139 ms
+[INFO ] 2022-12-21T02:27:15,267 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T02:27:15,270 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T02:27:15,271 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T02:27:15,271 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T02:27:15,271 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T02:27:17,839 [main] RPCClient - Startup took 903 msec
+[INFO ] 2022-12-21T02:27:18,332 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:27:18,440 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:27:14 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:27:18,515 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T02:27:18,516 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T02:27:18,517 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T02:27:18,517 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T02:27:18,518 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T02:27:18,518 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T02:27:18,519 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T02:27:18,520 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T02:27:18,523 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T02:27:18,524 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T02:27:18,549 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:27:18,550 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:27:18,595 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T02:27:18,753 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T02:27:18,765 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:27:18,778 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T02:27:18,806 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T02:27:18,810 [main] Starter - Started Starter in 5.424 seconds (JVM running for 6.053)
+[INFO ] 2022-12-21T02:29:31,496 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:27:14 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:29:31,499 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T02:33:19,768 [main] Starter - Starting Starter on ruth-VirtualBox with PID 12325 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T02:33:19,772 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T02:33:19,819 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:33:19 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:33:20,814 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T02:33:20,829 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:33:20,839 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T02:33:20,840 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T02:33:20,850 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T02:33:20,938 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T02:33:20,938 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1120 ms
+[INFO ] 2022-12-21T02:33:21,041 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T02:33:21,044 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T02:33:21,045 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T02:33:21,045 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T02:33:21,045 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T02:33:23,459 [main] RPCClient - Startup took 779 msec
+[INFO ] 2022-12-21T02:33:23,925 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:33:24,079 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:33:19 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:33:24,152 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T02:33:24,153 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T02:33:24,154 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T02:33:24,154 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T02:33:24,154 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T02:33:24,156 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T02:33:24,156 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T02:33:24,157 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T02:33:24,171 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T02:33:24,172 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T02:33:24,195 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:33:24,196 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:33:24,243 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T02:33:24,330 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T02:33:24,343 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:33:24,356 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T02:33:24,375 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T02:33:24,378 [main] Starter - Started Starter in 5.207 seconds (JVM running for 5.781)
+[INFO ] 2022-12-21T02:33:34,951 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T02:33:34,952 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T02:33:34,971 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+[INFO ] 2022-12-21T02:35:30,440 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:33:19 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:35:30,446 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T02:35:35,069 [main] Starter - Starting Starter on ruth-VirtualBox with PID 12556 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T02:35:35,074 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T02:35:35,128 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:35:35 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:35:36,098 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T02:35:36,113 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:35:36,124 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T02:35:36,124 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T02:35:36,134 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T02:35:36,227 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T02:35:36,227 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1100 ms
+[INFO ] 2022-12-21T02:35:36,343 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T02:35:36,347 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T02:35:36,347 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T02:35:36,347 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T02:35:36,347 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T02:35:38,733 [main] RPCClient - Startup took 737 msec
+[INFO ] 2022-12-21T02:35:39,207 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:35:39,309 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:35:35 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:35:39,372 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T02:35:39,374 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T02:35:39,374 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T02:35:39,374 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T02:35:39,375 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T02:35:39,375 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T02:35:39,375 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T02:35:39,375 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T02:35:39,378 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T02:35:39,379 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T02:35:39,399 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:35:39,399 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:35:39,434 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T02:35:39,549 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T02:35:39,566 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:35:39,581 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T02:35:39,602 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T02:35:39,607 [main] Starter - Started Starter in 5.25 seconds (JVM running for 5.916)
+[INFO ] 2022-12-21T02:35:54,296 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T02:35:54,297 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T02:35:54,309 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 12 ms
+[WARN ] 2022-12-21T02:37:31,999 [Thread-0 (ActiveMQ-client-factory-threads-1875532039)] RPCClientProxyHandler - Terminating observables.
+[INFO ] 2022-12-21T02:37:53,143 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:35:35 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:37:53,144 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[WARN ] 2022-12-21T02:37:53,147 [Thread-0 (ActiveMQ-client-factory-threads-1875532039)] client - AMQ212004: Failed to connect to server.
+[ERROR] 2022-12-21T02:37:53,148 [Thread-0 (ActiveMQ-client-factory-threads-1875532039)] RPCClientProxyHandler - Could not reconnect to the RPC server.
+[INFO ] 2022-12-21T02:39:25,803 [main] Starter - Starting Starter on ruth-VirtualBox with PID 13616 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T02:39:25,808 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T02:39:25,845 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:39:25 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:39:26,848 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T02:39:26,862 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:39:26,871 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T02:39:26,871 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T02:39:26,880 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T02:39:26,983 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T02:39:26,983 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1139 ms
+[INFO ] 2022-12-21T02:39:27,085 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T02:39:27,089 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T02:39:27,090 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T02:39:27,090 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T02:39:27,091 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T02:39:30,045 [main] RPCClient - Startup took 1100 msec
+[INFO ] 2022-12-21T02:39:30,825 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:39:30,980 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:39:25 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:39:31,116 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T02:39:31,118 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T02:39:31,118 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T02:39:31,118 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T02:39:31,119 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T02:39:31,119 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T02:39:31,119 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T02:39:31,119 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T02:39:31,123 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T02:39:31,125 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T02:39:31,160 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:39:31,160 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:39:31,203 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T02:39:31,336 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T02:39:31,348 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:39:31,365 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T02:39:31,400 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T02:39:31,403 [main] Starter - Started Starter in 6.284 seconds (JVM running for 6.818)
+[INFO ] 2022-12-21T02:40:13,488 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T02:40:13,490 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T02:40:13,504 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+[INFO ] 2022-12-21T02:45:02,628 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:39:25 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:45:02,630 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T02:50:45,378 [main] Starter - Starting Starter on ruth-VirtualBox with PID 17550 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T02:50:45,462 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T02:50:45,877 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:50:45 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:50:52,488 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T02:50:52,594 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:50:52,646 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T02:50:52,649 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T02:50:52,689 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T02:50:53,068 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T02:50:53,069 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 7210 ms
+[INFO ] 2022-12-21T02:50:54,223 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T02:50:54,236 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T02:50:54,242 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T02:50:54,242 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T02:50:54,242 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T02:51:08,359 [main] RPCClient - Startup took 5471 msec
+[INFO ] 2022-12-21T02:51:09,469 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:51:09,670 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:50:45 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:51:09,820 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T02:51:09,822 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T02:51:09,822 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T02:51:09,823 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T02:51:09,823 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T02:51:09,824 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T02:51:09,830 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T02:51:09,831 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T02:51:09,835 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T02:51:09,836 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T02:51:09,928 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:51:09,930 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T02:51:10,008 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T02:51:10,144 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T02:51:10,165 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T02:51:10,183 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T02:51:10,326 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T02:51:10,358 [main] Starter - Started Starter in 31.002 seconds (JVM running for 34.056)
+[INFO ] 2022-12-21T02:51:16,639 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T02:51:16,640 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T02:51:16,674 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+[INFO ] 2022-12-21T02:56:19,678 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 10:50:45 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T02:56:19,684 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T03:01:51,621 [main] Starter - Starting Starter on ruth-VirtualBox with PID 22606 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T03:01:51,634 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T03:01:51,693 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:01:51 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:01:53,191 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T03:01:53,207 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T03:01:53,220 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T03:01:53,220 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T03:01:53,231 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T03:01:53,324 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T03:01:53,325 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1631 ms
+[INFO ] 2022-12-21T03:01:53,446 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T03:01:53,450 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T03:01:53,451 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T03:01:53,451 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T03:01:53,451 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T03:01:56,378 [main] RPCClient - Startup took 909 msec
+[INFO ] 2022-12-21T03:01:56,921 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:01:57,095 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:01:51 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:01:57,171 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T03:01:57,172 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T03:01:57,172 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T03:01:57,172 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T03:01:57,173 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T03:01:57,173 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T03:01:57,173 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T03:01:57,174 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T03:01:57,178 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T03:01:57,179 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T03:01:57,195 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:01:57,195 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:01:57,243 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T03:01:57,337 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T03:01:57,349 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T03:01:57,366 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T03:01:57,385 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T03:01:57,388 [main] Starter - Started Starter in 6.827 seconds (JVM running for 7.547)
+[INFO ] 2022-12-21T03:02:23,661 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T03:02:23,662 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T03:02:23,684 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 22 ms
+[INFO ] 2022-12-21T03:08:35,384 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:01:51 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:08:35,387 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T03:12:55,605 [main] Starter - Starting Starter on ruth-VirtualBox with PID 24554 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T03:12:55,610 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T03:12:55,647 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:12:55 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:12:56,757 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T03:12:56,776 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T03:12:56,793 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T03:12:56,793 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T03:12:56,810 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T03:12:56,919 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T03:12:56,920 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1272 ms
+[INFO ] 2022-12-21T03:12:57,027 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T03:12:57,030 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T03:12:57,030 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T03:12:57,031 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T03:12:57,031 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T03:12:59,778 [main] RPCClient - Startup took 1071 msec
+[INFO ] 2022-12-21T03:13:00,400 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:13:00,523 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:12:55 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:13:00,603 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T03:13:00,605 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T03:13:00,605 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T03:13:00,605 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T03:13:00,606 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T03:13:00,606 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T03:13:00,606 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T03:13:00,607 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T03:13:00,610 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T03:13:00,611 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T03:13:00,630 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:13:00,631 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:13:00,666 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T03:13:00,749 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T03:13:00,763 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T03:13:00,777 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T03:13:00,801 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T03:13:00,805 [main] Starter - Started Starter in 5.854 seconds (JVM running for 6.514)
+[INFO ] 2022-12-21T03:13:09,739 [http-nio-10051-exec-1] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T03:13:09,739 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T03:13:09,759 [http-nio-10051-exec-1] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+[WARN ] 2022-12-21T03:13:12,200 [Thread-0 (ActiveMQ-client-factory-threads-341887005)] RPCClientProxyHandler - A hot observable returned from an RPC was never subscribed to. This wastes server-side resources because it was queueing observations for retrieval. It is being closed now, but please adjust your code to call .notUsed() on the observable to close it explicitly. (Java users: subscribe to it then unsubscribe). If you aren't sure where the leak is coming from, set -Dnet.corda.client.rpc.trackRpcCallSites=true on the JVM command line and you will get a stack trace with this warning.
+[WARN ] 2022-12-21T03:13:12,200 [Thread-0 (ActiveMQ-client-factory-threads-341887005)] RPCClientProxyHandler - A hot observable returned from an RPC was never subscribed to. This wastes server-side resources because it was queueing observations for retrieval. It is being closed now, but please adjust your code to call .notUsed() on the observable to close it explicitly. (Java users: subscribe to it then unsubscribe). If you aren't sure where the leak is coming from, set -Dnet.corda.client.rpc.trackRpcCallSites=true on the JVM command line and you will get a stack trace with this warning.
+[WARN ] 2022-12-21T03:13:12,201 [Thread-0 (ActiveMQ-client-factory-threads-341887005)] RPCClientProxyHandler - A hot observable returned from an RPC was never subscribed to. This wastes server-side resources because it was queueing observations for retrieval. It is being closed now, but please adjust your code to call .notUsed() on the observable to close it explicitly. (Java users: subscribe to it then unsubscribe). If you aren't sure where the leak is coming from, set -Dnet.corda.client.rpc.trackRpcCallSites=true on the JVM command line and you will get a stack trace with this warning.
+[INFO ] 2022-12-21T03:32:03,478 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:12:55 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:32:03,481 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T03:35:20,396 [main] Starter - Starting Starter on ruth-VirtualBox with PID 26399 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T03:35:20,441 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T03:35:20,648 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:35:20 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:35:25,994 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T03:35:26,031 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T03:35:26,060 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T03:35:26,062 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T03:35:26,088 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T03:35:26,485 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T03:35:26,491 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 5843 ms
+[INFO ] 2022-12-21T03:35:27,179 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T03:35:27,199 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T03:35:27,200 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T03:35:27,200 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T03:35:27,200 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T03:35:39,805 [main] RPCClient - Startup took 4141 msec
+[INFO ] 2022-12-21T03:35:40,447 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:35:40,592 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:35:20 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:35:40,689 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T03:35:40,691 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T03:35:40,691 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T03:35:40,692 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T03:35:40,692 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T03:35:40,692 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T03:35:40,693 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T03:35:40,693 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T03:35:40,696 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T03:35:40,697 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T03:35:40,719 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:35:40,719 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T03:35:40,771 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T03:35:40,965 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T03:35:40,976 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T03:35:40,989 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T03:35:41,015 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T03:35:41,019 [main] Starter - Started Starter in 25.587 seconds (JVM running for 28.138)
+[INFO ] 2022-12-21T03:35:52,113 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T03:35:52,113 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T03:35:52,133 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+[INFO ] 2022-12-21T03:39:22,263 [Thread-3] AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 11:35:20 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T03:39:22,267 [Thread-3] AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+[INFO ] 2022-12-21T05:58:59,321 [main] Starter - Starting Starter on ruth-VirtualBox with PID 31242 (/home/ruth/Documents/github/winter-internship/backend/clients/build/classes/java/main started by ruth in /home/ruth/Documents/github/winter-internship/backend/clients)
+[INFO ] 2022-12-21T05:58:59,331 [main] Starter - No active profile set, falling back to default profiles: default
+[INFO ] 2022-12-21T05:58:59,391 [main] AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 13:58:59 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T05:59:00,936 [main] TomcatWebServer - Tomcat initialized with port(s): 10051 (http)
+[INFO ] 2022-12-21T05:59:00,966 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T05:59:00,983 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2022-12-21T05:59:00,984 [main] StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+[INFO ] 2022-12-21T05:59:00,995 [localhost-startStop-1] AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+[INFO ] 2022-12-21T05:59:01,196 [localhost-startStop-1] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2022-12-21T05:59:01,196 [localhost-startStop-1] ContextLoader - Root WebApplicationContext: initialization completed in 1805 ms
+[INFO ] 2022-12-21T05:59:01,470 [localhost-startStop-1] ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+[INFO ] 2022-12-21T05:59:01,475 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] 2022-12-21T05:59:01,476 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] 2022-12-21T05:59:01,477 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] 2022-12-21T05:59:01,477 [localhost-startStop-1] FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] 2022-12-21T05:59:06,941 [main] RPCClient - Startup took 1635 msec
+[INFO ] 2022-12-21T05:59:07,730 [main] SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T05:59:07,918 [main] RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3adcc812: startup date [Wed Dec 21 13:58:59 SGT 2022]; root of context hierarchy
+[INFO ] 2022-12-21T05:59:08,062 [main] RequestMappingHandlerMapping - Mapped "{[/bond],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getBondById(java.lang.String)
+[INFO ] 2022-12-21T05:59:08,063 [main] RequestMappingHandlerMapping - Mapped "{[/bond/holder],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHoldingBonds()
+[INFO ] 2022-12-21T05:59:08,068 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/initiate],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createBondHtlc(com.crosschain.dto.CreateHtlcDto)
+[INFO ] 2022-12-21T05:59:08,070 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/withdraw],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.withdrawBondHtlc(com.crosschain.dto.WithdrawHtlcDto)
+[INFO ] 2022-12-21T05:59:08,071 [main] RequestMappingHandlerMapping - Mapped "{[/htlc/bond/refund],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.refundBondHtlc(com.crosschain.dto.RefundHtlcDto)
+[INFO ] 2022-12-21T05:59:08,077 [main] RequestMappingHandlerMapping - Mapped "{[/htlc],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.getHtlcById(java.lang.String)
+[INFO ] 2022-12-21T05:59:08,078 [main] RequestMappingHandlerMapping - Mapped "{[/bond/transfer],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.transferBond(com.crosschain.dto.BondTransferDto)
+[INFO ] 2022-12-21T05:59:08,078 [main] RequestMappingHandlerMapping - Mapped "{[/bond/create],methods=[POST]}" onto private org.springframework.http.ResponseEntity<java.lang.Object> com.crosschain.webserver.Controller.createAndIssueBond(com.crosschain.dto.CreateBondDto)
+[INFO ] 2022-12-21T05:59:08,081 [main] RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] 2022-12-21T05:59:08,082 [main] RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] 2022-12-21T05:59:08,105 [main] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T05:59:08,106 [main] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] 2022-12-21T05:59:08,176 [main] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2022-12-21T05:59:08,318 [main] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO ] 2022-12-21T05:59:08,340 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-10051"]
+[INFO ] 2022-12-21T05:59:08,366 [main] NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2022-12-21T05:59:08,417 [main] TomcatWebServer - Tomcat started on port(s): 10051 (http) with context path ''
+[INFO ] 2022-12-21T05:59:08,433 [main] Starter - Started Starter in 9.96 seconds (JVM running for 11.069)
+[INFO ] 2022-12-21T06:00:18,664 [http-nio-10051-exec-2] [/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] 2022-12-21T06:00:18,666 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] 2022-12-21T06:00:18,713 [http-nio-10051-exec-2] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 46 ms

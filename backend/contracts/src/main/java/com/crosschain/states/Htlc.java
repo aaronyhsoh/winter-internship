@@ -2,7 +2,7 @@ package com.crosschain.states;
 
 import com.crosschain.contracts.HtlcContract;
 import net.corda.core.contracts.BelongsToContract;
-import net.corda.core.contracts.ContractState;
+import net.corda.core.contracts.LinearState;
 import net.corda.core.contracts.UniqueIdentifier;
 import net.corda.core.identity.AbstractParty;
 import net.corda.core.identity.Party;
@@ -13,9 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 
 @BelongsToContract(HtlcContract.class)
-public class Htlc implements ContractState {
+public class Htlc implements LinearState {
 
-    private String htlcId;
+    private UniqueIdentifier htlcId;
     private UniqueIdentifier bondId;
     private Party sender;
     private Party receiver;
@@ -31,7 +31,7 @@ public class Htlc implements ContractState {
     public static final String REFUNDED_STATUS = "REFUNDED";
 
     @ConstructorForDeserialization
-    public Htlc(String htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency, String status) {
+    public Htlc(UniqueIdentifier htlcId, UniqueIdentifier bondId, Party sender, Party receiver, Party escrow, int timeout, String hash, int amount, String currency, String status) {
         this.htlcId = htlcId;
         this.bondId = bondId;
         this.sender = sender;
@@ -50,7 +50,7 @@ public class Htlc implements ContractState {
         return Arrays.asList(sender, receiver, escrow);
     }
 
-    public String getHtlcId() {
+    public UniqueIdentifier getHtlcId() {
         return htlcId;
     }
 
@@ -93,5 +93,11 @@ public class Htlc implements ContractState {
     public Htlc updateStatus(String newStatus) {
         Htlc output = new Htlc(htlcId,  bondId,  sender,  receiver,  escrow,  timeout,  hash,  amount,  currency, newStatus);
         return output;
+    }
+
+    @NotNull
+    @Override
+    public UniqueIdentifier getLinearId() {
+        return this.htlcId;
     }
 }

@@ -5,8 +5,12 @@ import com.crosschain.contracts.HtlcContract;
 import com.crosschain.states.Bond;
 import com.crosschain.states.Htlc;
 import net.corda.core.contracts.StateAndRef;
+import net.corda.core.contracts.UniqueIdentifier;
 import net.corda.core.flows.*;
 import net.corda.core.identity.Party;
+import net.corda.core.node.StatesToRecord;
+import net.corda.core.node.services.Vault;
+import net.corda.core.node.services.vault.QueryCriteria;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
 import net.corda.core.utilities.UntrustworthyData;
@@ -14,6 +18,8 @@ import net.corda.core.utilities.UntrustworthyData;
 import javax.annotation.Signed;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.UUID;
 
 import static com.crosschain.utils.hashUtil.generateHash;
 
@@ -24,10 +30,10 @@ public class WithdrawHtlcFlow {
     public static class HtlcWithdrawInitiator extends FlowLogic<SignedTransaction> {
 
         private final Party escrow;
-        private final String htlcId;
+        private final UniqueIdentifier htlcId;
         private final String secret;
 
-        public HtlcWithdrawInitiator(Party escrow, String htlcId, String secret) {
+        public HtlcWithdrawInitiator(Party escrow, UniqueIdentifier htlcId, String secret) {
             this.escrow = escrow;
             this.htlcId = htlcId;
             this.secret = secret;
@@ -36,13 +42,16 @@ public class WithdrawHtlcFlow {
         @Override
         @Suspendable
         public SignedTransaction call() throws FlowException {
+            QueryCriteria.LinearStateQueryCriteria inputCriteria = new QueryCriteria.LinearStateQueryCriteria()
+                    .withUuid(Arrays.asList(htlcId.getId()))
+                    .withStatus(Vault.StateStatus.UNCONSUMED)
+                    .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
+
             StateAndRef<Htlc> stateAndRef = getServiceHub().getVaultService()
-                    .queryBy(Htlc.class)
+                    .queryBy(Htlc.class, inputCriteria)
                     .getStates()
-                    .stream()
-                    .filter(data -> data.getState().getData().getHtlcId().equals(htlcId))
-                    .findAny()
-                    .orElseThrow(() -> new IllegalArgumentException("Htlc state with id " + htlcId + "does not exist"));
+                    .get(0);
+
             Htlc htlcState = stateAndRef.getState().getData();
 
             // ==== Verify Transaction ====
@@ -72,6 +81,7 @@ public class WithdrawHtlcFlow {
 
                 TransactionBuilder txBuilder = new TransactionBuilder(notary)
                         .addOutputState(updatedState)
+                        .addInputState(stateAndRef)
                         .addCommand(new HtlcContract.Commands.Withdraw(), Arrays.asList(getOurIdentity().getOwningKey()));
                 txBuilder.verify(getServiceHub());
 
@@ -101,11 +111,11 @@ public class WithdrawHtlcFlow {
             SignedTransaction signedTx = signedTxWrapper.unwrap(data -> data);
             Htlc htlcState = (Htlc) signedTx.getTx().getOutputStates().get(0);
 
-            if (receiverSession.getCounterparty().equals(htlcState.getEscrow())) {
+            if (getOurIdentity().equals(htlcState.getEscrow())) {
                 subFlow(new TransferBondFlow.TransferBondInitiator(receiverSession.getCounterparty(), htlcState.getBondId()));
             }
 
-            return subFlow(new ReceiveFinalityFlow(receiverSession, signedTx.getId()));
+            return subFlow(new ReceiveFinalityFlow(receiverSession, signedTx.getId(), StatesToRecord.ONLY_RELEVANT));
         }
     }
 

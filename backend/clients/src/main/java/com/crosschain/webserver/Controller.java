@@ -123,11 +123,12 @@ public class Controller {
             Party escrow = findParty(proxy, newHtlc.getEscrow(), false);
 
             UniqueIdentifier bondId = new UniqueIdentifier(null, UUID.fromString(newHtlc.getBondId()));
+            UniqueIdentifier htlcId = new UniqueIdentifier(null, UUID.fromString(newHtlc.getHtlcId()));
 
             // start flow
             Htlc output = proxy.startTrackedFlowDynamic(
                     HtlcFlow.HtlcInitiator.class,
-                    newHtlc.getHtlcId(),
+                    htlcId,
                     bondId,
                     receiver,
                     escrow,
@@ -148,11 +149,12 @@ public class Controller {
     public ResponseEntity<Object> withdrawBondHtlc(@RequestBody WithdrawHtlcDto withdrawHtlc) {
         try {
             Party escrow = findParty(proxy, withdrawHtlc.getEscrow(), false);
+            UniqueIdentifier htlcId = new UniqueIdentifier(null, UUID.fromString(withdrawHtlc.getHtlcId()));
 
             Htlc output = (Htlc) proxy.startTrackedFlowDynamic(
                     WithdrawHtlcFlow.HtlcWithdrawInitiator.class,
                     escrow,
-                    withdrawHtlc.getHtlcId(),
+                    htlcId,
                     withdrawHtlc.getSecret())
                     .getReturnValue()
                     .get()
@@ -172,11 +174,12 @@ public class Controller {
     public ResponseEntity<Object> refundBondHtlc(@RequestBody RefundHtlcDto request) {
         try {
             Party escrow = findParty(proxy, request.getEscrow(), false);
+            UniqueIdentifier htlcId = new UniqueIdentifier(null, UUID.fromString(request.getHtlcId()));
 
             Htlc output = proxy.startTrackedFlowDynamic(
                     RefundHtlcFlow.HtlcRefundInitiator.class,
                     escrow,
-                    request.getHtlcId())
+                    htlcId)
                     .getReturnValue()
                     .get()
                     .getTx()

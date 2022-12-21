@@ -11,6 +11,7 @@ import net.corda.core.identity.CordaX500Name;
 import net.corda.core.identity.Party;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
+import org.checkerframework.common.aliasing.qual.Unique;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
@@ -21,7 +22,7 @@ public class HtlcFlow {
     @InitiatingFlow
     @StartableByRPC
     public static class HtlcInitiator extends FlowLogic<SignedTransaction> {
-        private String htlcId;
+        private UniqueIdentifier htlcId;
         private UniqueIdentifier bondId;
         private Party receiver;
         private Party escrow;
@@ -30,7 +31,7 @@ public class HtlcFlow {
         private int amount;
         private String hash;
 
-        public HtlcInitiator(String htlcId, UniqueIdentifier bondId, Party receiver, Party escrow, int timeout, String currency, int amount, String hash) {
+        public HtlcInitiator(UniqueIdentifier htlcId, UniqueIdentifier bondId, Party receiver, Party escrow, int timeout, String currency, int amount, String hash) {
             this.htlcId = htlcId;
             this.bondId = bondId;
             this.receiver = receiver;

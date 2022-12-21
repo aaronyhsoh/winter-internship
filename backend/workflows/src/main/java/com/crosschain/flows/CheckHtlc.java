@@ -26,7 +26,7 @@ public class CheckHtlc {
                     .queryBy(Htlc.class)
                     .getStates()
                     .stream().filter(data1 ->
-                            data1.getState().getData().getHtlcId().equals(htlcId))
+                            data1.getState().getData().getHtlcId().getId().toString().equals(htlcId))
                     .findAny()
                     .orElseThrow(() -> new IllegalArgumentException("Htlc with the id " + htlcId + "does not exist"));
             Htlc htlcState = htlcStateAndRef.getState().getData();
