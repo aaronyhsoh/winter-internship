@@ -17,10 +17,10 @@ function CreateBondForm(props) {
       event.preventDefault();
   
       const enteredBondName = bondNameInputRef.current.value;
-      const enteredValue = faceValueInputRef.current.value;
-      const enteredCouponRate = couponRateInputRef.current.value;
-      const enteredYearsToMature = yearsToMatureInputRef.current.value;
-      const enteredPaymentInterval = paymentIntervalInputRef.current.value;
+      const enteredValue = parseInt(faceValueInputRef.current.value);
+      const enteredCouponRate = parseInt(couponRateInputRef.current.value);
+      const enteredYearsToMature = parseInt(yearsToMatureInputRef.current.value);
+      const enteredPaymentInterval = parseInt(paymentIntervalInputRef.current.value);
       const enteredHolder = holderInputRef.current.value;
   
       const bondData = {
@@ -31,7 +31,7 @@ function CreateBondForm(props) {
         paymentinterval: enteredPaymentInterval,
         holder: enteredHolder,
       };
-  
+      console.log(bondData);
       props.onCreateBond(bondData);
     }
   
