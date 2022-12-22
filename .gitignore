@@ -9,9 +9,8 @@
 **/out/
 **/logs/
 **/node_modules/
-corda-nodeinfo/corda-nodeinfo.iml
-backend/workflows/bin/*
-backend/contracts/bin/*
-backend/clients/logs/*
-backend/.gradle/*
-
+backend/workflows/bin/
+backend/contracts/bin/
+backend/clients/logs/
+backend/.gradle/
+backend/logs/
