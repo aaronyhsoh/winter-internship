@@ -24,11 +24,11 @@ function CreateBondForm(props) {
       const enteredHolder = holderInputRef.current.value;
   
       const bondData = {
-        bondname: enteredBondName,
-        value: enteredValue,
-        couponrate: enteredCouponRate,
-        yearstomature: enteredYearsToMature,
-        paymentinterval: enteredPaymentInterval,
+        bondName: enteredBondName,
+        faceValue: enteredValue,
+        couponRate: enteredCouponRate,
+        yearsToMature: enteredYearsToMature,
+        paymentInterval: enteredPaymentInterval,
         holder: enteredHolder,
       };
       console.log(bondData);
