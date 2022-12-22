@@ -24,6 +24,7 @@ import static com.crosschain.utils.PartyUtil.findParty;
  */
 @RestController
 @RequestMapping("/") // The paths for HTTP requests are relative to this base path.
+@CrossOrigin(origins = "*")
 public class Controller {
     private final CordaRPCOps proxy;
     private final CordaX500Name me;
