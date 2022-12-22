@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"bondName\": \"bondC\",\n    \"faceValue\": 100,\n    \"couponRate\": 5,\n    \"yearsToMature\": 2, \n    \"paymentInterval\": 0.5,\n    \"holder\": \"PartyB\"\n}",
+					"raw": "{\n    \"bondName\": \"bondA\",\n    \"faceValue\": 100,\n    \"couponRate\": 5,\n    \"yearsToMature\": 2, \n    \"paymentInterval\": 0.5,\n    \"holder\": \"PartyA\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"bondId\": \"7ec9fdfa-985b-45be-a5f0-5b09cce05aec\", \n    \"receiver\": \"PartyB\", \n    \"escrow\": \"Escrow\", \n    \"timeout\": 30000, \n    \"currency\": \"eth\", \n    \"amount\": 1, \n    \"hash\": \"9f731fd7b8b451ac939beef4c590867cc42a7831a306a3221a42800c6b6de388\"\n}",
+					"raw": "{\n    \"bondId\": \"1138c5d2-f9ea-477b-ac80-ec765a00bd19\", \n    \"receiver\": \"PartyB\", \n    \"escrow\": \"Escrow\", \n    \"timeout\": 300000, \n    \"currency\": \"eth\", \n    \"amount\": 1, \n    \"hash\": \"65462b0520ef7d3df61b9992ed3bea0c56ead753be7c8b3614e0ce01e4cac41b\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"receiver\": \"PartyB\",\n    \"bondId\": \"2df696a3-d040-4738-9325-79bb13961f9a\"\n}",
+					"raw": "{\n    \"receiver\": \"PartyB\",\n    \"bondId\": \"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,7 +94,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"escrow\": \"Escrow\", \n    \"htlcId\": 1,\n    \"secret\": \"i like to party\"\n}",
+					"raw": "{\n    \"escrow\": \"Escrow\", \n    \"htlcId\": \"c2ca769a-6368-460d-a0e4-78f308960612\",\n    \"secret\": \"secret\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,7 +122,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"escrow\": \"Escrow\",\n    \"htlcId\": \"1\"\n}",
+					"raw": "{\n    \"escrow\": \"Escrow\",\n    \"htlcId\": \"e6fd86ac-b766-467a-b381-ca0325d81f5d\"\n}   ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -147,7 +147,22 @@
 			"name": "GetBondById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/bond?id=13752d52-0218-45af-956e-336000db114c",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bond"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13752d52-0218-45af-956e-336000db114c"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -155,7 +170,17 @@
 			"name": "GetHoldingBonds",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/bond/holder",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"bond",
+						"holder"
+					]
+				}
 			},
 			"response": []
 		},
@@ -163,7 +188,40 @@
 			"name": "GetHtlcById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/htlc?id=f34c989f-412c-4afc-a6a0-968be473ecea",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "f34c989f-412c-4afc-a6a0-968be473ecea"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllRelatedHtlc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/htlc/getAll",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"htlc",
+						"getAll"
+					]
+				}
 			},
 			"response": []
 		}
