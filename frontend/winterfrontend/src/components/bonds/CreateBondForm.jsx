@@ -31,6 +31,8 @@ function CreateBondForm(props) {
         paymentInterval: enteredPaymentInterval,
         holder: enteredHolder,
       };
+
+      
       console.log(bondData);
       props.onCreateBond(bondData);
     }

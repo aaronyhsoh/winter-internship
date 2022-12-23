@@ -4,14 +4,19 @@ function BondItem(props){
     <li>
         <Card>
             <div>
-                <h1>{props.bondName}</h1>
+                <h2>{props.bondName}</h2>
             </div>
             <div>
-                <p>{props.faceValue}</p>
-                <p>{props.couponRate}</p>
-                <p>{props.yearsToMature}</p>
-                <p>{props.paymentInterval}</p>
-                <p>{props.holder}</p>
+                <p>Face Value: {props.faceValue}</p>
+                <p>Coupon Rate: {props.couponRate}</p>
+                <p>Years to Mature: {props.yearsToMature}</p>
+                <p>Payment Interval: {props.paymentInterval}</p>
+                <p>Issue Date: {props.issueDate}</p>
+                <p>Maturity Date: {props.maturityDate}</p>
+                <p>Bond Rating: {props.bondRating}</p>
+                <p>Issuer: {props.issuer}</p>
+                <p>Holder: {props.holder}</p>
+                <p>Bond ID: {props.id}</p>
             </div>
         </Card>
     </li>
