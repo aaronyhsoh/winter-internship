@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+
+pragma solidity >=0.7.0 <0.9.0;
 
 contract HtlcBond {
 
@@ -18,10 +19,8 @@ contract HtlcBond {
         uint256 price;
     }
 
-    event create(string);
-    event withdraw(string);
-    event debugSecret(bytes32);
-    event generatedHash(bytes32);
+    event initiateHtlc(string);
+    event withdrawAmount(uint256);
 
     function createHtlc(address receiver, bytes32 hash, uint256 timeoutPeriod) public payable {
         require(senderToReceiver[msg.sender] == address(0) , "Sender have an existing htlc contract");
@@ -33,21 +32,21 @@ contract HtlcBond {
         newHtlc.hash = hash;
         newHtlc.timeout = block.timestamp + timeoutPeriod; 
         newHtlc.price = msg.value;
-        emit create("Successful");
 
         receiveHtlc[receiver] = newHtlc;
         senderToReceiver[msg.sender] = receiver;
+        emit initiateHtlc("Htlc initiated");
     }
 
     // but how to ensure that the hash in corda and eth is the same?
     // receiver 
-    function withdrawEther(string memory secret) public payable {
+    function withdraw(string memory secret) public payable {
         Htlc storage htlc = receiveHtlc[msg.sender];
         require(htlc.sender != address(0), "No htlc for withdrawal found");
 
         // verify timeout
         require(block.timestamp < htlc.timeout, "Timeout exceeded, swap is invalid");
-        
+
         // verify secret
         bytes32 encodedSecret = keccak256(abi.encodePacked(secret));
         bytes32 hash = htlc.hash;
@@ -56,20 +55,21 @@ contract HtlcBond {
         // release ether
         payable (msg.sender).transfer(htlc.price);
 
-        // remove from mapping
-        delete receiveHtlc[msg.sender];
-        senderToReceiver[htlc.sender] = address(0);     
+        emit withdrawAmount(htlc.price);
 
-        require(receiveHtlc[msg.sender].sender == address(0), "receiver mapping not deleted");
+        // remove from mapping
+        delete senderToReceiver[htlc.sender];     
         require(senderToReceiver[htlc.sender] == address(0), "sender mapping not deleted");
-        emit withdraw("Withdrawal successful");
+
+        delete receiveHtlc[msg.sender];
+        require(receiveHtlc[msg.sender].sender == address(0), "receiver mapping not deleted");
     }
 
     function getContractBalance() public view returns(uint256) {
         return address(this).balance;
     }
 
-    function pendingPartyToWithdrawl() public view returns(address) {
+    function pendingPartyToWithdraw() public view returns(address) {
         return senderToReceiver[msg.sender];
     }
 
