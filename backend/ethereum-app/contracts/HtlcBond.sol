@@ -59,10 +59,24 @@ contract HtlcBond {
 
         // remove from mapping
         delete senderToReceiver[htlc.sender];     
-        require(senderToReceiver[htlc.sender] == address(0), "sender mapping not deleted");
+        require(senderToReceiver[htlc.sender] == address(0), "Sender mapping not deleted");
 
         delete receiveHtlc[msg.sender];
-        require(receiveHtlc[msg.sender].sender == address(0), "receiver mapping not deleted");
+        require(receiveHtlc[msg.sender].sender == address(0), "Receiver mapping not deleted");
+    }
+
+    function refund() public payable {
+        Htlc storage htlc = receiveHtlc[senderToReceiver[msg.sender]];
+        require(block.timestamp >= htlc.timeout, "Contract has not exceed timeout period");
+
+        payable (msg.sender).transfer(htlc.price);
+
+        // remove mapping from contract
+        delete senderToReceiver[msg.sender];     
+        require(senderToReceiver[msg.sender] == address(0), "Sender mapping not deleted");
+
+        delete receiveHtlc[htlc.receiver];
+        require(receiveHtlc[htlc.receiver].sender == address(0), "Receiver mapping not deleted");
     }
 
     function getContractBalance() public view returns(uint256) {
