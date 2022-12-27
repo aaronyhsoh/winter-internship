@@ -1,7 +1,7 @@
 import Card from '../../ui/Card';
 import { useRef } from 'react';
 
-function BondHtlcForm(){
+function BondHtlcForm(props){
     const bondIdInputRef=useRef();
     const receiverInputRef=useRef();
     const escrowInputRef=useRef();
@@ -26,6 +26,7 @@ function BondHtlcForm(){
         };
 
         console.log(bondHtlcData);
+        props.onCreateHtlc(bondHtlcData); 
 
     }
 

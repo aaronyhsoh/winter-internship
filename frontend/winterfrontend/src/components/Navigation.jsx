@@ -22,6 +22,9 @@ function Navigation(){
                             <Link to="/withdraw-bond">Withdraw Bond</Link>
                         </li>
                         <li>
+                            <Link to="/refund-bond">Refund Bond</Link>
+                        </li>
+                        <li>
                             <Link to="/bond-htlc">Htlc</Link>
                         </li>
                     </ul>
