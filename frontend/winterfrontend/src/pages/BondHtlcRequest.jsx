@@ -1,13 +1,13 @@
-import WithdrawBondForm from '../components/bonds/WithdrawBondForm';
+import BondHtlcForm from '../components/bonds/BondHtlc/BondHtlcForm';
 import { useNavigate } from "react-router-dom";
 
-function WithdrawBondPage(){
-    const navigate=useNavigate();
-    function withdrawBondHandler(withdrawBondData){
+function BondHtlcRequestPage(){
+    const navigate = useNavigate();
+    function createHtlcHandler(bondHtlcData){
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify(withdrawBondData);
+        var raw = JSON.stringify(bondHtlcData);
 
         var requestOptions = {
         method: 'POST',
@@ -16,23 +16,21 @@ function WithdrawBondPage(){
         redirect: 'follow'
         };
 
-        fetch("http://localhost:10051/htlc/bond/withdraw", requestOptions)
+        fetch("http://localhost:10051/htlc/bond/initiate", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error))
-        .then(() => {
+        .then(() =>{
             navigate("/", {replace: true});
         });
     }
 
-
     return(
         <section>
-            <h1>Withdraw Bond</h1>
-            <WithdrawBondForm onWithdrawBond={withdrawBondHandler} />
+            <h1>Create Htlc Bond</h1>
+            <BondHtlcForm onCreateHtlc={createHtlcHandler}/>
         </section>
     );
-
 }
 
-export default WithdrawBondPage;
+export default BondHtlcRequestPage;

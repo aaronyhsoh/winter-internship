@@ -18,7 +18,13 @@ function Homepage(){
                     <Link to="/withdraw-bond"><h3>Withdraw Bond</h3></Link>
                 </li>
                 <li>
+                    <Link to="/refund-bond"><h3>Refund Bond</h3></Link>
+                </li>
+                <li>
                     <Link to="/bond-htlc"><h3>Create Bond Htlc</h3></Link>
+                </li>
+                <li>
+                    <Link to="/get-htlc"><h3>Get Htlc</h3></Link>
                 </li>
             </ul>
                 
