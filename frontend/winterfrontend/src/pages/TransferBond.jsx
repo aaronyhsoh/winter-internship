@@ -21,19 +21,19 @@ function TransferBondPage(){
             navigate("/", {replace: true});
           });
 
-        // fetch('http://localhost:10051/bond/transfer',
-        //     {
-        //         //mode:'no-cors',
-        //         method: 'POST',
-        //         headers: { 
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json' 
-        //         },
-        //         body: JSON.stringify(bondTransferData),
-        //     }
-        // ).then(() =>{
-        //     navigate("/", {replace: true});
-        // });
+    //     fetch('http://localhost:10051/bond/transfer',
+    //         {
+    //             //mode:'no-cors',
+    //             method: 'POST',
+    //             headers: { 
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json' 
+    //             },
+    //             body: JSON.stringify(bondTransferData),
+    //         }
+    //     ).then(() =>{
+    //         navigate("/", {replace: true});
+    //     });
 
     }
 

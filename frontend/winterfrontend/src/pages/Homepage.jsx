@@ -14,6 +14,12 @@ function Homepage(){
                 <li>
                     <Link to="/transfer-bond"><h3>Transfer Bond</h3></Link>
                 </li>
+                <li>
+                    <Link to="/withdraw-bond"><h3>Withdraw Bond</h3></Link>
+                </li>
+                <li>
+                    <Link to="/bond-htlc"><h3>Create Bond Htlc</h3></Link>
+                </li>
             </ul>
                 
         </div>  

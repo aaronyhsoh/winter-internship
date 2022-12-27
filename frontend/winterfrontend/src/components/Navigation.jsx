@@ -5,7 +5,7 @@ function Navigation(){
     return(
         <header className={classes.header}>
             <div className={classes.logo}>
-                <Link to="/">ABC Bond</Link>
+                <Link to="/">Home</Link>
             </div>        
                 <nav>
                     <ul>
@@ -17,6 +17,12 @@ function Navigation(){
                         </li>
                         <li>
                             <Link to="/transfer-bond">Transfer Bond</Link>
+                        </li>
+                        <li>
+                            <Link to="/withdraw-bond">Withdraw Bond</Link>
+                        </li>
+                        <li>
+                            <Link to="/bond-htlc">Htlc</Link>
                         </li>
                     </ul>
                 </nav>

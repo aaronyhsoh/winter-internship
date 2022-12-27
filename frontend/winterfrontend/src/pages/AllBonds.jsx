@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import BondList from "../components/bonds/BondList";
+import BondList from "../components/bonds/CreateBond/BondList";
 
 
 // const DUMMY_DATA = [

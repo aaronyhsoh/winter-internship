@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import CreateBondForm from '../components/bonds/CreateBondForm';
+import CreateBondForm from '../components/bonds/CreateBond/CreateBondForm';
 //import axios from "axios";
 
 

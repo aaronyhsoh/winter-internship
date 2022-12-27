@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import AllBondsPage from './pages/AllBonds';
 import NewBondPage from './pages/NewBond';
 import TransferBondPage from './pages/TransferBond';
+import WithdrawBondPage from './pages/WithdrawBond';
+import BondHtlcPage from './pages/BondHtlc';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
 
@@ -15,6 +17,8 @@ function App() {
       <Route path="/all-bonds" element={<AllBondsPage />} />
       <Route path="/new-bond" element={<NewBondPage />} />
       <Route path="/transfer-bond" element={<TransferBondPage />} />
+      <Route path="/withdraw-bond" element={<WithdrawBondPage />} />
+      <Route path="/bond-htlc" element={<BondHtlcPage />} />
       <Route path="/" element={<Homepage />} />
     </Routes>
   </>
