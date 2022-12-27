@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 
-import Card from '../ui/Card';
+import Card from '../../ui/Card';
 import classes from './CreateBondForm.module.css';
 
 
@@ -31,10 +31,12 @@ function CreateBondForm(props) {
         paymentInterval: enteredPaymentInterval,
         holder: enteredHolder,
       };
+      
       console.log(bondData);
       props.onCreateBond(bondData);
     }
-  
+
+
     return (
     <Card>
         <form className={classes.form} onSubmit={submitHandler}>

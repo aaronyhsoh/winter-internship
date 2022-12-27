@@ -4,14 +4,25 @@ import classes from "./Navigation.module.css";
 function Navigation(){
     return(
         <header className={classes.header}>
-            <div className={classes.logo}>Bonds</div>        
+            <div className={classes.logo}>
+                <Link to="/">Home</Link>
+            </div>        
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">All Bonds</Link>
+                            <Link to="/all-bonds">My Bonds</Link>
                         </li>
                         <li>
                             <Link to="/new-bond">Create Bond</Link>
+                        </li>
+                        <li>
+                            <Link to="/transfer-bond">Transfer Bond</Link>
+                        </li>
+                        <li>
+                            <Link to="/withdraw-bond">Withdraw Bond</Link>
+                        </li>
+                        <li>
+                            <Link to="/bond-htlc">Htlc</Link>
                         </li>
                     </ul>
                 </nav>
