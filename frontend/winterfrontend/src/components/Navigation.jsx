@@ -27,6 +27,9 @@ function Navigation(){
                         <li>
                             <Link to="/bond-htlc">Htlc</Link>
                         </li>
+                        <li>
+                            <Link to="/get-htlc">Get Htlc</Link>
+                        </li>
                     </ul>
                 </nav>
         </header>
