@@ -8,6 +8,7 @@ import WithdrawBondPage from './pages/WithdrawBond';
 import RefundBondPage from './pages/RefundBondHtlc';
 import BondHtlcRequestPage from './pages/BondHtlcRequest';
 import GetHtlcPage from './pages/GetHtlc';
+import BondByIdPage from './pages/BondById';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
 
@@ -17,6 +18,7 @@ function App() {
     <Navigation />
     <Routes>
       <Route path="/all-bonds" element={<AllBondsPage />} />
+      <Route path="/bond-by-id" element={<BondByIdPage />} />
       <Route path="/new-bond" element={<NewBondPage />} />
       <Route path="/transfer-bond" element={<TransferBondPage />} />
       <Route path="/withdraw-bond" element={<WithdrawBondPage />} />
