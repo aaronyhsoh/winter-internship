@@ -12,6 +12,7 @@ import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
 import Web3 from 'web3';
 import { useState } from 'react';
+// import HtlcContract from "./EthContractAbi.json";
 import HtlcContract from "./HtlcBond.json";
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
         // get contract
         const networkId = await web3.eth.net.getId();
         setHtlcContract(new web3.eth.Contract(HtlcContract.abi, HtlcContract.networks[networkId].address));
+        // connect to contract on goerli testnet
+        // setHtlcContract(new web3.eth.Contract(HtlcContract, "0xeec65b153bc92b168a09f3d2e278089ae490265b"));
       }
     } catch (err) {
       console.log(err);
@@ -65,9 +68,11 @@ function App() {
     setHtlcContractBalance(bal);
   }
 
+  // buyer
   const createHtlc = async () => {
-    // createHtlc parameters to be inputted by users
-    let result = await htlcContract.methods.createHtlc(account, "0x65462b0520ef7d3df61b9992ed3bea0c56ead753be7c8b3614e0ce01e4cac41b", 100000000).send({from: account, value: 9932620000000000})
+    // createHtlc parameters to be inputted (receiverAccount, hash, timeout period in seconds)
+    // value: price of bond in wei
+    let result = await htlcContract.methods.createHtlc(account, "0x65462b0520ef7d3df61b9992ed3bea0c56ead753be7c8b3614e0ce01e4cac41b", 1).send({from: account, value: 11111111})
     .then(result  => {
       console.log(result.events.returnValues[0]);
       return (result)}
@@ -75,22 +80,26 @@ function App() {
     .catch(err => console.log(err.message));
   }
 
+  // buyer
   const refundHtlc = async () => {
     let result = await htlcContract.methods.refund().send({from: account}).then(tx => tx).catch(err => console.log(err));
     console.log(result);
   }
 
+  // seller 
   const withdrawHtlc = async () => {
     // secret to be inputted by user
     let result = await htlcContract.methods.withdraw('secret').send({from: account}).then(tx => tx).catch(err => console.log(err));
     console.log(result);
   }
 
+  // helper function
   const getPendingPartyToWithdraw = async () => {
     let party = await htlcContract.methods.pendingPartyToWithdraw().call({from: account}).then(result => result).catch(err => console.log(err));
     console.log(party);
   }
 
+  // helper function
   const getPendingReceiveFrom = async () => {
     let party = await htlcContract.methods.pendingReceiveFrom().call({from: account}).then(result => result).catch(err => console.log(err));
     console.log(party);
