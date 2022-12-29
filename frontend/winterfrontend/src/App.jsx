@@ -8,9 +8,10 @@ import WithdrawBondPage from './pages/WithdrawBond';
 import RefundBondPage from './pages/RefundBondHtlc';
 import BondHtlcRequestPage from './pages/BondHtlcRequest';
 import GetHtlcPage from './pages/GetHtlc';
-import BondByIdPage from './pages/BondById';
+import BondByIdPage from './pages/BondByIdRequest';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
+import GetBondByIdPage from './pages/GetBondById';
 import Web3 from 'web3';
 import { useState } from 'react';
 import HtlcContract from "./HtlcBond.json";
@@ -135,6 +136,7 @@ function App() {
       <Route path="/refund-bond" element={<RefundBondPage />} />
       <Route path="/bond-htlc" element={<BondHtlcRequestPage />} />
       <Route path="/get-htlc" element={<GetHtlcPage />} />
+      <Route path="/get-bond-by-id" element={<GetBondByIdPage/> } />
       <Route path="/" element={<Homepage />} />
     </Routes>
   </>
