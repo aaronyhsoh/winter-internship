@@ -8,6 +8,7 @@ import WithdrawBondPage from './pages/WithdrawBond';
 import RefundBondPage from './pages/RefundBondHtlc';
 import BondHtlcRequestPage from './pages/BondHtlcRequest';
 import GetHtlcPage from './pages/GetHtlc';
+import BondByIdPage from './pages/BondById';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
 import Web3 from 'web3';
@@ -124,18 +125,19 @@ function App() {
 
         </div>
       }
-
-      <Routes>
-        <Route path="/all-bonds" element={<AllBondsPage />} />
-        <Route path="/new-bond" element={<NewBondPage />} />
-        <Route path="/transfer-bond" element={<TransferBondPage />} />
-        <Route path="/withdraw-bond" element={<WithdrawBondPage />} />
-        <Route path="/refund-bond" element={<RefundBondPage />} />
-        <Route path="/bond-htlc" element={<BondHtlcRequestPage />} />
-        <Route path="/get-htlc" element={<GetHtlcPage />} />
-        <Route path="/" element={<Homepage />} />
-      </Routes>
-    </>
+      
+    <Routes>
+      <Route path="/all-bonds" element={<AllBondsPage />} />
+      <Route path="/bond-by-id" element={<BondByIdPage />} />
+      <Route path="/new-bond" element={<NewBondPage />} />
+      <Route path="/transfer-bond" element={<TransferBondPage />} />
+      <Route path="/withdraw-bond" element={<WithdrawBondPage />} />
+      <Route path="/refund-bond" element={<RefundBondPage />} />
+      <Route path="/bond-htlc" element={<BondHtlcRequestPage />} />
+      <Route path="/get-htlc" element={<GetHtlcPage />} />
+      <Route path="/" element={<Homepage />} />
+    </Routes>
+  </>
   );
 }
 
