@@ -3,8 +3,15 @@ import Card from '../ui/Card';
 function BondByIdForm(props){
     const idInputRef = useRef();
 
-    function submitHandler(){
-        
+    function submitHandler(event){
+        event.preventDefault();
+
+        const bondByIdData = {
+            bondid: idInputRef.current.value,
+        };
+
+        console.log(bondByIdData);
+        props.onGetById(bondByIdData);
     }
     
     return(
