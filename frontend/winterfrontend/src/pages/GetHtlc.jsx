@@ -4,23 +4,48 @@ import BondHtlcList from '../components/bonds/BondHtlc/BondHtlcList';
 function GetHtlcPage(){
     const [isLoading, setIsLoading] = useState(true);
     const [loadedBonds, setLoadedBonds] = useState([]);
-    useEffect(() => {
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      };
+    // useEffect(() => {
+    // var requestOptions = {
+    //     method: 'GET',
+    //     redirect: 'follow'
+    //   };
       
-      fetch("http://localhost:10051/htlc/getAll", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error))
+    //   fetch("http://localhost:10051/htlc/getAll", requestOptions)
+    //     .then(response => response.text())
+    //     .then(result => console.log(result))
+    //     .catch(error => console.log('error', error))
+    //     .then((data) => {
+    //         setIsLoading(false);
+    //         setLoadedBonds(data);
+    //     // }).catch(err => {
+    //     //     console.log(err);
+    //     });
+    // },[]);
+
+
+    useEffect(() => {
+        fetch('http://localhost:10051/htlc/getAll'
+        ).then(response => {
+            return response.json();
+        })
         .then((data) => {
+            const bonds = [];
+
+            for(const key in data){
+                const bond = {
+                    id: key,
+                    ...data[key]
+                };
+                bonds.push(bond);
+            }
+
             setIsLoading(false);
-            setLoadedBonds(data);
+            setLoadedBonds(bonds);
         // }).catch(err => {
         //     console.log(err);
         });
     },[]);
+
 
     if(isLoading){
         return(
