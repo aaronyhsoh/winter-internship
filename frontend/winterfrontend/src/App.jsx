@@ -11,25 +11,16 @@ import GetHtlcPage from './pages/GetHtlc';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
 import Web3 from 'web3';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import HtlcContract from "./HtlcBond.json";
 
 function App() {
-  // const [account, setAccount] = useState();
-
-  // useEffect(() => {
-  //   async function load() {
-  //     const web3 = new Web3(Web3.givenProvider || `http://localhost:7545`);
-  //     const accounts = await web3.eth.requestAccounts();
-
-  //     setAccount(accounts[0]);
-  //   }
-
-  //   load();;
-
-  // }, [])
-
   const [isConnected, setIsConnected] = useState(false);
   const [ethBalance, setEthBalance] = useState("");
+  const [htlcContractBalance, setHtlcContractBalance] = useState(-1);
+  const [account, setAccount] = useState("");
+  const [htlcContract, setHtlcContract] = useState();
+
 
   const detectCurrentProvider = () => {
     let provider;
@@ -45,6 +36,7 @@ function App() {
     return provider;
   }
 
+  // connect to metamask
   const onConnect = async () => {
     try {
       const currentProvider = detectCurrentProvider();
@@ -55,12 +47,53 @@ function App() {
         const userAccounts = await web3.eth.getAccounts();
         const account = userAccounts[0];
         let ethBalance = await web3.eth.getBalance(account);
+        setAccount(account);
         setEthBalance(ethBalance);
         setIsConnected(true);
+
+        // get contract
+        const networkId = await web3.eth.net.getId();
+        setHtlcContract(new web3.eth.Contract(HtlcContract.abi, HtlcContract.networks[networkId].address));
       }
     } catch (err) {
       console.log(err);
     }
+  }
+
+  const getHtlcContractBalance = async () => {
+    let bal = await htlcContract.methods.getContractBalance().call({from: account}).then(result => result).catch(err => console.log(err));
+    setHtlcContractBalance(bal);
+  }
+
+  const createHtlc = async () => {
+    // createHtlc parameters to be inputted by users
+    let result = await htlcContract.methods.createHtlc(account, "0x65462b0520ef7d3df61b9992ed3bea0c56ead753be7c8b3614e0ce01e4cac41b", 100000000).send({from: account, value: 9932620000000000})
+    .then(result  => {
+      console.log(result.events.returnValues[0]);
+      return (result)}
+      )
+    .catch(err => console.log(err.message));
+  }
+
+  const refundHtlc = async () => {
+    let result = await htlcContract.methods.refund().send({from: account}).then(tx => tx).catch(err => console.log(err));
+    console.log(result);
+  }
+
+  const withdrawHtlc = async () => {
+    // secret to be inputted by user
+    let result = await htlcContract.methods.withdraw('secret').send({from: account}).then(tx => tx).catch(err => console.log(err));
+    console.log(result);
+  }
+
+  const getPendingPartyToWithdraw = async () => {
+    let party = await htlcContract.methods.pendingPartyToWithdraw().call({from: account}).then(result => result).catch(err => console.log(err));
+    console.log(party);
+  }
+
+  const getPendingReceiveFrom = async () => {
+    let party = await htlcContract.methods.pendingReceiveFrom().call({from: account}).then(result => result).catch(err => console.log(err));
+    console.log(party);
   }
 
   return (
@@ -74,9 +107,23 @@ function App() {
         <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
           <h2 style={{color: 'green'}}>You are connected to metamask</h2>
           <span>Your Balance: {ethBalance} wei</span>
+
+          <span>Htlc Contract Balance: {htlcContractBalance}</span>
+          <br/>
+          <button onClick={getHtlcContractBalance}>Get Contract Balance</button>
+
+          <button onClick={createHtlc}>Create Htlc</button>
+
+          <button onClick={refundHtlc}>Refund Htlc</button>
+
+          <button onClick={withdrawHtlc}>Withdraw Htlc</button>
+
+          <button onClick={getPendingPartyToWithdraw}>Pending Withdrawal From: </button>
+
+          <button onClick={getPendingReceiveFrom}>Pending Receive From:</button>
+
         </div>
       }
-
 
       <Routes>
         <Route path="/all-bonds" element={<AllBondsPage />} />
