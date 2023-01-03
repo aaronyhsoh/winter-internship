@@ -1,4 +1,4 @@
-import BondHtlcForm from '../components/bonds/BondHtlc/BondHtlcForm';
+import BondHtlcForm from '../../components/bonds/BondHtlc/BondHtlcForm';
 import { useNavigate } from "react-router-dom";
 
 function BondHtlcRequestPage(){

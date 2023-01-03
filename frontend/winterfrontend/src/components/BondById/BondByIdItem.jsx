@@ -1,6 +1,7 @@
 import Card from "../ui/Card";
 
-function BondByIdItem(bond){
+function BondByIdItem({bond}){
+    console.log("Bond", bond);
     return(
         <li>
         <Card>

@@ -1,28 +1,35 @@
-import BondByIdForm from '../components/BondById/BondByIdForm'
+import BondByIdForm from '../components/BondById/BondByIdForm';
+import GetBondByIdPage from './GetBondById';
+import { useState } from 'react';
+
 function BondByIdPage(){
-    // function getByIdHandler(bondByIdData){
-    //     var raw = "";
+    const [bond, setBond] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
-    //     var requestOptions = {
-    //     method: 'GET',
-    //     body: raw,
-    //     redirect: 'follow'
-    //     };
+    var api = 'http://localhost:10051/bond?id='
 
-    //     var api = 'http://localhost:10051/bond?id='
-
-    //     fetch(api + bondByIdData, requestOptions)
-    //     .then(response => response.text())
-    //     .then(result => console.log(result))
-    //     .catch(error => console.log('error', error));
-    // }
+    function getByIdHandler(bondByIdData){
+        // <GetBondByIdPage bondByIdData />
+        console.log(bondByIdData);
+        fetch(api + bondByIdData.bondid
+            ).then(response => {
+                return response.json();
+            })
+            .then((data) => {
+                setIsLoading(false);
+                setBond(data)
+            });
+    }
 
     return(
         <section>
             <h1>Get Bond by ID</h1>
-            <BondByIdForm 
-            onGetById={getByIdHandler} 
-            />
+            { bond === undefined ?
+                <BondByIdForm 
+                onGetById={getByIdHandler} />
+                : 
+                <GetBondByIdPage isLoading={isLoading} loadedBonds={bond} />
+            }
         </section>
     );
 }
