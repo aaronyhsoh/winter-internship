@@ -1,4 +1,4 @@
-import HtlcByIdItem from '../components/HtlcById/HtlcByIdItem';
+import HtlcByIdItem from '../../components/HtlcById/HtlcByIdItem';
 function GetHtlcByIdPage(props){
     return(
         <section>

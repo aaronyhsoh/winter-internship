@@ -1,4 +1,4 @@
-import WithdrawBondForm from '../components/bonds/WithdrawBondForm';
+import WithdrawBondForm from '../../components/bonds/WithdrawBondForm';
 import { useNavigate } from "react-router-dom";
 
 function WithdrawBondPage(){

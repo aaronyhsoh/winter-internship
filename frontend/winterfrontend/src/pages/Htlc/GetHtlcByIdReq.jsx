@@ -1,4 +1,4 @@
-import HtlcByIdForm from '../components/HtlcById/HtlcByIdForm';
+import HtlcByIdForm from '../../components/HtlcById/HtlcByIdForm';
 import GetHtlcByIdPage from './GetHtlcById';
 import { useState } from 'react';
 
