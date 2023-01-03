@@ -1,31 +1,30 @@
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 import BondByIdItem from '../components/BondById/BondByIdItem';
 
-function GetBondByIdPage(bondByIdData){
-    const [isLoading, setIsLoading] = useState(true);
-    const [loadedBonds, setLoadedBonds] = useState([]);
+function GetBondByIdPage(props){
+    // const [isLoading, setIsLoading] = useState(true);
+    // const [loadedBonds, setLoadedBonds] = useState([]);
     
-    var raw = "";
+    // var raw = "";
 
-    var requestOptions = {
-    method: 'GET',
-    body: raw,
-    redirect: 'follow'
-    };
+    // var requestOptions = {
+    // method: 'GET',
+    // redirect: 'follow'
+    // };
 
-    var api = 'http://localhost:10051/bond?id='
+    // var api = 'http://localhost:10051/bond?id='
     
-    useEffect(()=>{
-        fetch(api + bondByIdData, requestOptions
-        ).then(response => {
-            return response.json();
-        })
-        .then((data) => {
-            setIsLoading(false);
-            setLoadedBonds(data)
-        });
+    // useEffect(()=>{
+    //     fetch(api + bondByIdData.bondid
+    //     ).then(response => {
+    //         return response.json();
+    //     })
+    //     .then((data) => {
+    //         setIsLoading(false);
+    //         setLoadedBonds(data)
+    //     });
 
-    },[]);
+    // },[]);
 
     // function getByIdHandler(bondByIdData){
     //     var raw = "";
@@ -44,7 +43,7 @@ function GetBondByIdPage(bondByIdData){
     //     .catch(error => console.log('error', error));
     // }
 
-    if(isLoading){
+    if(props.isLoading){
         return(
             <section>
                 <p>Loading...</p>
@@ -56,7 +55,7 @@ function GetBondByIdPage(bondByIdData){
     return(
         <section>
             <h1>Bond Details:</h1>
-            <BondByIdItem bond={loadedBonds}/>
+            <BondByIdItem bond={props.loadedBonds}/>
         </section>
     )
 

@@ -11,7 +11,8 @@ import GetHtlcPage from './pages/GetHtlc';
 import BondByIdPage from './pages/BondByIdRequest';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
-import GetBondByIdPage from './pages/GetBondById';
+//import GetBondByIdPage from './pages/GetBondById';
+import GetHtlcByIdReqPage from './pages/GetHtlcByIdReq';
 import Web3 from 'web3';
 import { useState } from 'react';
 import HtlcContract from "./HtlcBond.json";
@@ -108,8 +109,9 @@ function App() {
         :
         <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
           <h2 style={{color: 'green'}}>You are connected to metamask</h2>
-          <span>Your Balance: {ethBalance} wei</span>
-
+          <div>
+          <span>Your Balance: {ethBalance} wei </span>
+          </div>
           <span>Htlc Contract Balance: {htlcContractBalance}</span>
           <br/>
           <button onClick={getHtlcContractBalance}>Get Contract Balance</button>
@@ -136,7 +138,8 @@ function App() {
       <Route path="/refund-bond" element={<RefundBondPage />} />
       <Route path="/bond-htlc" element={<BondHtlcRequestPage />} />
       <Route path="/get-htlc" element={<GetHtlcPage />} />
-      <Route path="/get-bond-by-id" element={<GetBondByIdPage/> } />
+      <Route path="/get-htlc-by-id" element={<GetHtlcByIdReqPage />} />
+      {/* <Route path="/get-bond-by-id" element={<GetBondByIdPage/> } /> */}
       <Route path="/" element={<Homepage />} />
     </Routes>
   </>

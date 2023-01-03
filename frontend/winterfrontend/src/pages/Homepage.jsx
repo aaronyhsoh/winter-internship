@@ -29,6 +29,9 @@ function Homepage(){
                 <li>
                     <Link to="/bond-by-id"><h3>Get Bond by ID</h3></Link>
                 </li>
+                <li>
+                    <Link to="/get-htlc-by-id"><h3>Get HTLC by ID</h3></Link>
+                </li>
             </ul>
                 
         </div>  
