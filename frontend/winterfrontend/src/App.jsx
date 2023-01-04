@@ -16,6 +16,7 @@ import GetHtlcByIdReqPage from './pages/Htlc/GetHtlcByIdReq';
 import Web3 from 'web3';
 import { useState } from 'react';
 import HtlcContract from "./HtlcBond.json";
+import 'antd/dist/reset.css';
 
 function App() {
   const [isConnected, setIsConnected] = useState(false);
@@ -101,8 +102,7 @@ function App() {
 
   return (
     <>
-      <Navigation />
-      {!isConnected ?
+      {/* {!isConnected ?
         <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
           <button style={{ width: '5rem', height: '2rem' }} onClick={onConnect}>Login</button>
         </div>
@@ -127,7 +127,7 @@ function App() {
           <button onClick={getPendingReceiveFrom}>Pending Receive From:</button>
 
         </div>
-      }
+      } */}
       
     <Routes>
       <Route path="/all-bonds" element={<AllBondsPage />} />
