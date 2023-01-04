@@ -73,12 +73,13 @@ export class HtlcApp {
       this.log.debug(`Registered signal handlers for graceful auto-shutdown`);
     }
 
-    // Reserve ports where cactus nodes will run api servers that frontend will call
+    // Reserve ports where cactus nodes will run api servers that frontend calls
     const httpApiA = await Servers.startOnPort(4000, "0.0.0.0"); 
     const httpGuiA = await Servers.startOnPort(3000, "0.0.0.0");
 
     const addressInfoA = httpApiA.address() as AddressInfo;
     const nodeApiHostA = `http://localhost:${addressInfoA.port}`;
+    // ==================================================================
 
     const cordaConfig = new Configuration({
       basePath: nodeApiHostA,
@@ -87,7 +88,7 @@ export class HtlcApp {
     const cordaApiClient = new CordaApi(cordaConfig);
 
     this.log.info(`Configuring Cactus Node for Corda...`);
-    const rpcApiHostA = `http://localhost:10051`; // corda api address
+    const rpcApiHostA = `http://localhost:10006`; // corda api address
 
     const pluginRegistryA = new PluginRegistry({
       plugins: [
