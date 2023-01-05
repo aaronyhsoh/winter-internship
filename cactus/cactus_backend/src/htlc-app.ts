@@ -12,15 +12,17 @@ import {
 
 import { ApiServer, ConfigService } from "@hyperledger/cactus-cmd-api-server";
 
-// maining to define interfaces with this package
-import { Configuration, IPluginKeychain } from "@hyperledger/cactus-core-api";
+// mainly to define interfaces with this package
+import { IPluginKeychain } from "@hyperledger/cactus-core-api";
 
-import { PluginLedgerConnectorCorda, DefaultApi as CordaApi, IPluginLedgerConnectorCordaOptions } from "@hyperledger/cactus-plugin-ledger-connector-corda";
+import { PluginLedgerConnectorCorda, DefaultApi as CordaApi } from "@hyperledger/cactus-plugin-ledger-connector-corda";
 import { PluginKeychainMemory } from "@hyperledger/cactus-plugin-keychain-memory";
 
 import { IHtlcAppOptions, ShutdownHook, IStartInfo } from "./htlc-app-types";
 
 import exitHook, { IAsyncExitHookDoneCallback } from "async-exit-hook";
+
+import { HtlcCactusPlugin, DefaultApi as HtlcAppApi, Configuration } from "link";
 
 export class HtlcApp {
   private readonly log: Logger;
@@ -75,6 +77,8 @@ export class HtlcApp {
 
     // Reserve ports where cactus nodes will run api servers that frontend calls
     const httpApiA = await Servers.startOnPort(4000, "0.0.0.0"); 
+
+    //frontend?
     const httpGuiA = await Servers.startOnPort(3000, "0.0.0.0");
 
     const addressInfoA = httpApiA.address() as AddressInfo;
@@ -93,6 +97,11 @@ export class HtlcApp {
     const pluginRegistryA = new PluginRegistry({
       plugins: [
         // add business logic plugin
+        new HtlcCactusPlugin({
+          logLevel: this.options.logLevel,
+          cordaApi: cordaApiClient,
+          instanceId: uuidv4()
+        })
       ]
     });
 
@@ -116,7 +125,12 @@ export class HtlcApp {
 
     return {
       apiServerA,
-      cordaApiClient
+      cordaApiClient,
+      htlcApiClientA: new HtlcAppApi(
+        new Configuration({
+          basePath: nodeApiHostA
+        })
+      )
     }
   }
 

@@ -3,6 +3,7 @@ import { LogLevelDesc, IAsyncProvider } from "@hyperledger/cactus-common";
 import { DefaultApi as CordaApi } from "@hyperledger/cactus-plugin-ledger-connector-corda";
 import { IWebServiceEndpoint, IEndpointAuthzOptions, IExpressRequestHandler } from "@hyperledger/cactus-core-api";
 import { AuthorizationOptionsProvider } from "@hyperledger/cactus-core";
+import OAS from "../../../json/openapi.json";
 export interface ICreateBondEndpointOptions {
     logLevel?: LogLevelDesc;
     apiClient: CordaApi;
@@ -15,6 +16,7 @@ export declare class CreateBondEndpoint implements IWebServiceEndpoint {
     get className(): string;
     private readonly authorizationOptionsProvider;
     constructor(opts: ICreateBondEndpointOptions);
+    getOasPath(): typeof OAS.paths["/bond/create"];
     getAuthorizationOptionsProvider(): IAsyncProvider<IEndpointAuthzOptions>;
     registerExpress(expressApp: Express): Promise<IWebServiceEndpoint>;
     getVerbLowerCase(): string;

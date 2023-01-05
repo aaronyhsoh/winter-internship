@@ -1,8 +1,9 @@
 import { Express, Request, Response } from "express";
 import { LogLevelDesc, Logger, Checks, LoggerProvider, IAsyncProvider,safeStringifyException } from "@hyperledger/cactus-common";
-import { DefaultApi as CordaApi, FlowInvocationType } from "@hyperledger/cactus-plugin-ledger-connector-corda";
+import { DefaultApi as CordaApi, FlowInvocationType, JvmTypeKind } from "@hyperledger/cactus-plugin-ledger-connector-corda";
 import { IWebServiceEndpoint, IEndpointAuthzOptions, IExpressRequestHandler } from "@hyperledger/cactus-core-api";
 import { registerWebServiceEndpoint, AuthorizationOptionsProvider } from "@hyperledger/cactus-core";
+import OAS from "../../../json/openapi.json";
 
 export interface ICreateBondEndpointOptions {
     logLevel?: LogLevelDesc;
@@ -40,6 +41,12 @@ export class CreateBondEndpoint implements IWebServiceEndpoint {
         this.log.debug(`Instantiated ${this.className} OK`);
     }
 
+    public getOasPath(): typeof OAS.paths["/bond/create"] {
+        return OAS.paths[
+          "/bond/create"
+        ];
+      }
+
     getAuthorizationOptionsProvider(): IAsyncProvider<IEndpointAuthzOptions> {
         return this.authorizationOptionsProvider;
     }
@@ -66,16 +73,66 @@ export class CreateBondEndpoint implements IWebServiceEndpoint {
     async handleRequest(req: Request, res: Response) : Promise<void> {
         const tag = `${this.getVerbLowerCase().toUpperCase()} ${this.getPath()}`;
         try {
-            const bondId = req.body;
-            this.log.debug(`${tag} %o`, bondId);
+            const request = req.body;
+            this.log.debug(`${tag} %o`, request);
 
             const {
                 data: { callOutput, transactionId }
             } = await this.opts.apiClient.invokeContractV1({
-                flowFullClassName: "com.crosschain.flows.CreateAndIssueBond",
+                flowFullClassName: "com.crosschain.flows.CreateAndIssueBond.CreateAndIssueBondInitiator",
                 flowInvocationType: FlowInvocationType.FlowDynamic,
                 params: [
-
+                    {
+                        jvmTypeKind: JvmTypeKind.Reference,
+                          jvmType: {
+                          fqClassName: "com.crosschain.states.Bond",
+                        },
+                  
+                        jvmCtorArgs: [
+                          {
+                            jvmTypeKind: JvmTypeKind.Primitive,
+                            jvmType: {
+                              fqClassName: "java.lang.String",
+                            },
+                            primitiveValue: request.bondName,
+                          },
+                          {
+                            jvmTypeKind: JvmTypeKind.Primitive,
+                            jvmType: {
+                              fqClassName: "java.lang.Long",
+                            },
+                            primitiveValue: request.faceValue,
+                          },
+                          {
+                            jvmTypeKind: JvmTypeKind.Primitive,
+                            jvmType: {
+                              fqClassName: "java.lang.Long",
+                            },
+                            primitiveValue: request.couponRate,
+                          },
+                          {
+                            jvmTypeKind: JvmTypeKind.Primitive,
+                            jvmType: {
+                              fqClassName: "java.lang.Long",
+                            },
+                            primitiveValue: request.yearsToMature,
+                          },
+                          {
+                            jvmTypeKind: JvmTypeKind.Primitive,
+                            jvmType: {
+                              fqClassName: "java.lang.Long",
+                            },
+                            primitiveValue: request.paymentInterval,
+                          },
+                          {
+                            jvmTypeKind: JvmTypeKind.Primitive,
+                            jvmType: {
+                              fqClassName: "java.lang.String",
+                            },
+                            primitiveValue: request.holder,
+                          },
+                        ],
+                      }
                 ],
                 timeoutMs: 60000,
             })

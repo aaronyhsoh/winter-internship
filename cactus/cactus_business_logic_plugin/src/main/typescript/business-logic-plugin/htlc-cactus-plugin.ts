@@ -3,12 +3,13 @@ import { ICactusPlugin, IPluginWebService, IWebServiceEndpoint } from "@hyperled
 import { DefaultApi as CordaApi } from "@hyperledger/cactus-plugin-ledger-connector-corda";
 import { Express } from "express";
 import { CreateBondEndpoint } from "./web-services/create-bond-endpoint";
+import OAS from "../../json/openapi.json";
+import { GetBondByIdEndpoint } from "./web-services/get-bond-by-id-endpoint";
 
 export interface IHtlcCactusPluginOptions {
     logLevel?: LogLevelDesc;
     instanceId: string;
     cordaApi: CordaApi;
-    // contracts: ;
 }
 
 export class HtlcCactusPlugin implements ICactusPlugin, IPluginWebService {
@@ -50,7 +51,11 @@ export class HtlcCactusPlugin implements ICactusPlugin, IPluginWebService {
             apiClient: this.options.cordaApi
         });
 
-        this.endpoints = [createBond];
+        const getBondById = new GetBondByIdEndpoint({
+            apiClient: this.options.cordaApi
+        })
+
+        this.endpoints = [createBond, getBondById];
 
         return this.endpoints;
     }
@@ -61,8 +66,8 @@ export class HtlcCactusPlugin implements ICactusPlugin, IPluginWebService {
         return webServices;
     }
 
-    getOpenApiSpec(): unknown {
-        throw new Error("Method not implemented.");
+    public getOpenApiSpec(): unknown {
+        return OAS;
     }
 
     public async shutdown(): Promise<void> {
@@ -74,7 +79,7 @@ export class HtlcCactusPlugin implements ICactusPlugin, IPluginWebService {
     }
 
     public getPackageName(): string {
-        return "@hyperledger/cactus-example-supply-chain-backend";
+        return "htlc-cactus-backend";
     }
 
     public async onPluginInit(): Promise<unknown> {
