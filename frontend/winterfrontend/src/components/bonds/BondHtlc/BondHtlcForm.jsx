@@ -1,35 +1,47 @@
-import Card from '../../ui/Card';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useRef } from 'react';
 
 function BondHtlcForm(props){
-    const bondIdInputRef=useRef();
-    const receiverInputRef=useRef();
-    const escrowInputRef=useRef();
-    const timeoutInputRef=useRef();
-    const currencyInputRef=useRef();
-    const amountInputRef=useRef();
-    const hashInputRef=useRef();
+    // const bondIdInputRef=useRef();
+    // const receiverInputRef=useRef();
+    // const escrowInputRef=useRef();
+    // const timeoutInputRef=useRef();
+    // const currencyInputRef=useRef();
+    // const amountInputRef=useRef();
+    // const hashInputRef=useRef();
 
-    function submitHandler(event){
-        event.preventDefault();
-        const enteredTimeout = parseInt(timeoutInputRef.current.value);
-        const enteredAmount = parseInt(amountInputRef.current.value);
+    function submitHandler(values){
+        // event.preventDefault();
+        // const enteredTimeout = parseInt(timeoutInputRef.current.value);
+        // const enteredAmount = parseInt(amountInputRef.current.value);
+
+        // const bondHtlcData = {
+        //     bondId: bondIdInputRef.current.value,
+        //     receiver: receiverInputRef.current.value,
+        //     escrow: escrowInputRef.current.value,
+        //     timeout: enteredTimeout,
+        //     currency: currencyInputRef.current.value,
+        //     amount: enteredAmount,
+        //     hash: hashInputRef.current.value,
+        //};
+
+        const enteredTimeout = parseInt(values.timeout);
+        const enteredAmount = parseInt(values.amount);
 
         const bondHtlcData = {
-            bondId: bondIdInputRef.current.value,
-            receiver: receiverInputRef.current.value,
-            escrow: escrowInputRef.current.value,
+            bondId: values.bondid,
+            receiver: values.receiver,
+            escrow: values.escrow,
             timeout: enteredTimeout,
-            currency: currencyInputRef.current.value,
+            currency: values.currency,
             amount: enteredAmount,
-            hash: hashInputRef.current.value,
+            hash: values.hash,
         };
-
         console.log(bondHtlcData);
         props.onCreateHtlc(bondHtlcData); 
 
     }
+
 
     // return(
     //     <Card>
@@ -78,14 +90,15 @@ function BondHtlcForm(props){
                 wrapperCol={{ span: 16 }}
                 initialValues={{ remember: true }}
                 autoComplete="off"
-                onSubmit={submitHandler}
+                onFinish={submitHandler}
+                onSubmit={e => e.preventDefault()}
             >
                 <Form.Item
                     label="Bond ID"
                     name="bondid"
                     rules={[{ required: true, message: 'Please input Bond ID!' }]}
                 >
-                    <Input type='text' ref={bondIdInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item
@@ -93,7 +106,7 @@ function BondHtlcForm(props){
                     name="receiver"
                     rules={[{ required: true, message: 'Please input Receiver!' }]}
                 >
-                    <Input type='text' ref={receiverInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item
@@ -101,7 +114,7 @@ function BondHtlcForm(props){
                     name="escrow"
                     rules={[{ required: true, message: 'Please input Escrow!' }]}
                 >
-                    <Input type='text' ref={escrowInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item
@@ -109,7 +122,7 @@ function BondHtlcForm(props){
                     name="timeout"
                     rules={[{ required: true, message: 'Please input Time Out!' }]}
                 >
-                    <Input type='text' ref={timeoutInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item
@@ -117,7 +130,7 @@ function BondHtlcForm(props){
                     name="currency"
                     rules={[{ required: true, message: 'Please input Currency!' }]}
                 >
-                    <Input type='text' ref={currencyInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item
@@ -125,7 +138,7 @@ function BondHtlcForm(props){
                     name="amount"
                     rules={[{ required: true, message: 'Please input Amount!' }]}
                 >
-                    <Input type='text' ref={amountInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item
@@ -133,13 +146,13 @@ function BondHtlcForm(props){
                     name="hash"
                     rules={[{ required: true, message: 'Please input Hash!' }]}
                 >
-                    <Input type='text' ref={hashInputRef}/>
+                    <Input type='text' />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type="primary" htmlType="submit">
+                    <button>
                       Create
-                    </Button>
+                    </button>
                 </Form.Item>
                 
             </Form>

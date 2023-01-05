@@ -1,5 +1,11 @@
 import RefundBondForm from '../../components/bonds/RefundBondForm';
 import { useNavigate } from "react-router-dom";
+import  Navigation from "../../components/Navigation";
+import { Breadcrumb, Layout, theme } from 'antd';
+import { useState } from 'react';
+
+const { Header, Footer, Sider, Content } = Layout;
+
 function RefundBondPage(){
     const navigate = useNavigate();
     function refundBondHandler(refundBondData){
@@ -24,11 +30,48 @@ function RefundBondPage(){
         });
 
     }
-    return(
-        <section>
-            <h1>Refund Bond</h1>
+    // return(
+    //     <section>
+    //         <h1>Refund Bond</h1>
+    //         <RefundBondForm onRefundBond={refundBondHandler} />
+    //     </section>
+    // );
+
+    const [collapsed, setCollapsed] = useState(false);
+    const {
+      token: { colorBgContainer },
+    } = theme.useToken();
+  
+    return (
+      <>
+      <Layout style={{ height: "100%" }}>
+      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+          <div
+              style={{
+                  height: 32,
+                  margin: 16,
+                  background: 'rgba(255, 255, 255, 0.2)',
+              }}
+              />
+          <Navigation />
+      </Sider>
+      <Layout>
+          <Header 
+              style={{
+                  padding: 0,
+                  background: colorBgContainer,
+              }}
+          >
+          
+          <h1>Refund Bond</h1>
+          </Header>
+          <Content>
             <RefundBondForm onRefundBond={refundBondHandler} />
-        </section>
-    )
+          </Content>
+  
+          </Layout>
+        </Layout>
+      </>
+    );
 }
 export default RefundBondPage;

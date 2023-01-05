@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import classes from "./Navigation.module.css";
 
 // function Navigation(){
 //     return(
@@ -59,7 +58,7 @@ function getItem(label, key, icon, children) {
 
 
 const items = [
-  getItem('Manage Bonds', '1', <PieChartOutlined />),
+  getItem(<Link to="/">Homepage</Link>, '1', <PieChartOutlined />),
   getItem('Manage HTLCs', '2', <DesktopOutlined />),
   getItem('Manage Bonds', 'sub1', <UserOutlined />, [
     getItem(<Link to="/all-bonds">My Wallet</Link>, '3'),
