@@ -1,0 +1,325 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "paths": {
+        "/bond/transfer": {
+            "post": {
+                "operationId": "transferBond",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BondTransferDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/bond/create": {
+            "post": {
+                "operationId": "createAndIssueBond",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateBondDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/bond": {
+            "get": {
+                "operationId": "getBondById",
+                "parameters": [
+                    {
+                        "name": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/bond/holder": {
+            "get": {
+                "operationId": "getHoldingBonds",
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/htlc/bond/initiate": {
+            "post": {
+                "operationId": "createBondHtlc",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateHtlcDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/htlc/bond/withdraw": {
+            "post": {
+                "operationId": "withdrawBondHtlc",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WithdrawHtlcDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/htlc/bond/refund": {
+            "post": {
+                "operationId": "refundBondHtlc",
+                "requestBody": {
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RefundHtlcDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/htlc": {
+            "get": {
+                "operationId": "getHtlcById",
+                "parameters": [
+                    {
+                        "name": "",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/htlc/getAll": {
+            "get": {
+                "operationId": "getAllHtlc",
+                "responses": {
+                    "200": {
+                        "description": "default response",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BondTransferDto": {
+                "type": "object",
+                "properties": {
+                    "receiver": {
+                        "type": "string"
+                    },
+                    "bondId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CreateBondDto": {
+                "type": "object",
+                "properties": {
+                    "holder": {
+                        "type": "string"
+                    },
+                    "bondName": {
+                        "type": "string"
+                    },
+                    "faceValue": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "couponRate": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "yearsToMature": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "paymentInterval": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "CreateHtlcDto": {
+                "type": "object",
+                "properties": {
+                    "htlcId": {
+                        "type": "string"
+                    },
+                    "bondId": {
+                        "type": "string"
+                    },
+                    "receiver": {
+                        "type": "string"
+                    },
+                    "escrow": {
+                        "type": "string"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "hash": {
+                        "type": "string"
+                    }
+                }
+            },
+            "WithdrawHtlcDto": {
+                "type": "object",
+                "properties": {
+                    "escrow": {
+                        "type": "string"
+                    },
+                    "htlcId": {
+                        "type": "string"
+                    },
+                    "secret": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RefundHtlcDto": {
+                "type": "object",
+                "properties": {
+                    "escrow": {
+                        "type": "string"
+                    },
+                    "htlcId": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

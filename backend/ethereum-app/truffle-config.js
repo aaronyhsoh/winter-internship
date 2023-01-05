@@ -53,6 +53,10 @@ module.exports = {
     //   network_id: 5,       // Goerli's id
     //   chain_id: 5
     // }
+    goerli: {
+      network_id: 5,
+      chain_id: 5
+    }
   },
 
   // Set default mocha options here, use special reporters etc.
