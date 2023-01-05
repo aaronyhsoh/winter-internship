@@ -1,11 +1,22 @@
 import { useRef } from 'react';
 import Card from '../ui/Card';
+//import { useNavigate } from "react-router-dom";
 function BondByIdForm(props){
     const idInputRef = useRef();
 
-    function submitHandler(){
-        
+    function submitHandler(event){
+        event.preventDefault();
+
+        const bondByIdData = {
+            bondid: idInputRef.current.value,
+        };
+
+        console.log(bondByIdData);
+        props.onGetById(bondByIdData);
+        // navigate("/get-bond-by-id")
     }
+
+//    const navigate = useNavigate();
     
     return(
         <Card>

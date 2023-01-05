@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import BondHtlcList from '../components/bonds/BondHtlc/BondHtlcList';
+import BondHtlcList from '../.././components/bonds/BondHtlc/BondHtlcList';
 
 function GetHtlcPage(){
     const [isLoading, setIsLoading] = useState(true);

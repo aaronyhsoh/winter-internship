@@ -4,17 +4,20 @@ import { Route, Routes } from 'react-router-dom';
 import AllBondsPage from './pages/AllBonds';
 import NewBondPage from './pages/NewBond';
 import TransferBondPage from './pages/TransferBond';
-import WithdrawBondPage from './pages/WithdrawBond';
-import RefundBondPage from './pages/RefundBondHtlc';
-import BondHtlcRequestPage from './pages/BondHtlcRequest';
-import GetHtlcPage from './pages/GetHtlc';
-import BondByIdPage from './pages/BondById';
+import WithdrawBondPage from './pages/Htlc/WithdrawBond';
+import RefundBondPage from './pages/Htlc/RefundBondHtlc';
+import BondHtlcRequestPage from './pages/Htlc/BondHtlcRequest';
+import GetHtlcPage from './pages/Htlc/GetHtlc';
+import BondByIdPage from './pages/BondByIdRequest';
 import Homepage from './pages/Homepage';
 import Navigation from './components/Navigation';
+//import GetBondByIdPage from './pages/GetBondById';
+import GetHtlcByIdReqPage from './pages/Htlc/GetHtlcByIdReq';
 import Web3 from 'web3';
 import { useState } from 'react';
 // import HtlcContract from "./EthContractAbi.json";
 import HtlcContract from "./HtlcBond.json";
+import 'antd/dist/reset.css';
 
 function App() {
   const [isConnected, setIsConnected] = useState(false);
@@ -108,16 +111,16 @@ function App() {
 
   return (
     <>
-      <Navigation />
-      {!isConnected ?
+      {/* {!isConnected ?
         <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
           <button style={{ width: '5rem', height: '2rem' }} onClick={onConnect}>Login</button>
         </div>
         :
         <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
           <h2 style={{color: 'green'}}>You are connected to metamask</h2>
-          <span>Your Balance: {ethBalance} wei</span>
-
+          <div>
+          <span>Your Balance: {ethBalance} wei </span>
+          </div>
           <span>Htlc Contract Balance: {htlcContractBalance}</span>
           <br/>
           <button onClick={getHtlcContractBalance}>Get Contract Balance</button>
@@ -133,7 +136,7 @@ function App() {
           <button onClick={getPendingReceiveFrom}>Pending Receive From:</button>
 
         </div>
-      }
+      } */}
       
     <Routes>
       <Route path="/all-bonds" element={<AllBondsPage />} />
@@ -144,6 +147,8 @@ function App() {
       <Route path="/refund-bond" element={<RefundBondPage />} />
       <Route path="/bond-htlc" element={<BondHtlcRequestPage />} />
       <Route path="/get-htlc" element={<GetHtlcPage />} />
+      <Route path="/get-htlc-by-id" element={<GetHtlcByIdReqPage />} />
+      {/* <Route path="/get-bond-by-id" element={<GetBondByIdPage/> } /> */}
       <Route path="/" element={<Homepage />} />
     </Routes>
   </>
