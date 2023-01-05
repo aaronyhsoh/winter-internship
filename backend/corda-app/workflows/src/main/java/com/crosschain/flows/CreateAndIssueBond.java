@@ -3,25 +3,15 @@ package com.crosschain.flows;
 import co.paralleluniverse.fibers.Suspendable;
 import com.crosschain.contracts.BondContract;
 import com.crosschain.states.Bond;
-import net.corda.core.contracts.StateAndRef;
 import net.corda.core.contracts.UniqueIdentifier;
 import net.corda.core.flows.*;
 import net.corda.core.identity.Party;
-import net.corda.core.node.services.Vault;
-import net.corda.core.node.services.vault.Builder;
-import net.corda.core.node.services.vault.CriteriaExpression;
-import net.corda.core.node.services.vault.FieldInfo;
-import net.corda.core.node.services.vault.QueryCriteria;
 import net.corda.core.transactions.SignedTransaction;
 import net.corda.core.transactions.TransactionBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-
-import static net.corda.core.node.services.vault.QueryCriteriaUtils.getField;
 
 public class CreateAndIssueBond {
 

@@ -2,20 +2,14 @@ package com.crosschain.flows;
 
 import co.paralleluniverse.fibers.Suspendable;
 import com.crosschain.states.Bond;
-import net.corda.core.contracts.LinearState;
 import net.corda.core.contracts.StateAndRef;
 import net.corda.core.flows.FlowException;
 import net.corda.core.flows.FlowLogic;
 import net.corda.core.flows.InitiatingFlow;
 import net.corda.core.flows.StartableByRPC;
-import net.corda.core.node.services.Vault;
-import net.corda.core.node.services.vault.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static net.corda.core.node.services.vault.QueryCriteriaUtils.getField;
 
 public class CheckBond  {
 
