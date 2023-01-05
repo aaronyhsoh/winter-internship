@@ -150,6 +150,7 @@ export class HtlcApp {
     httpServerCockpit: Server, //frontend server?
     pluginRegistry: PluginRegistry,
   ): Promise<ApiServer> {
+    
     const addressInfoApi = httpServerApi.address() as AddressInfo;
     const addressInfoCockpit = httpServerCockpit.address() as AddressInfo;
 

@@ -5,6 +5,8 @@ import { LoggerProvider } from "@hyperledger/cactus-common";
 import { HtlcApp } from "./htlc-app";
 import { IHtlcAppOptions } from "./htlc-app-types";
 
+require('dotenv').config()
+
 export async function launchApp(
   env?: NodeJS.ProcessEnv,
   args?: string[],
