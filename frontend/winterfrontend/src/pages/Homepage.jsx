@@ -1,40 +1,35 @@
 import { Link } from "react-router-dom";
+import { Col, Row, Divider } from 'antd';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import HomeNavigation from '../components/HomeNavigation';
+
+const { Header, Content, Footer } = Layout;
+
 function Homepage(){
-    return(
- 
-        <div>      
-                
-            <ul>
-                <li>
-                    <Link to="/all-bonds"><h3>My Bonds</h3></Link>
-                </li>
-                <li>
-                    <Link to="/new-bond"><h3>Create Bond</h3></Link>
-                </li>
-                <li>
-                    <Link to="/transfer-bond"><h3>Transfer Bond</h3></Link>
-                </li>
-                <li>
-                    <Link to="/withdraw-bond"><h3>Withdraw Bond</h3></Link>
-                </li>
-                <li>
-                    <Link to="/refund-bond"><h3>Refund Bond</h3></Link>
-                </li>
-                <li>
-                    <Link to="/bond-htlc"><h3>Create Bond Htlc</h3></Link>
-                </li>
-                <li>
-                    <Link to="/get-htlc"><h3>Get Htlc</h3></Link>
-                </li>
-                <li>
-                    <Link to="/bond-by-id"><h3>Get Bond by ID</h3></Link>
-                </li>
-                <li>
-                    <Link to="/get-htlc-by-id"><h3>Get HTLC by ID</h3></Link>
-                </li>
-            </ul>
-                
-        </div>  
+    return( 
+        <Layout className="layout">   
+        <Header>
+            <HomeNavigation />
+        </Header>
+        <Content style={{ padding: '0 50px' }}> 
+            <Row justify="center">
+                <Col span={12}>             
+                <p><Link to="/all-bonds">My Wallet</Link></p>
+                <p><Link to="/new-bond">Create Bond</Link></p>
+                <p><Link to="/transfer-bond">Transfer Bond</Link></p>
+                <p><Link to="/bond-by-id">Get Bond by ID</Link></p>
+                </Col>
+
+                <Col span={12}>
+                <p><Link to="/get-htlc">View Hashed Timelock Contract (HTLC)</Link></p>
+                <p><Link to="/bond-htlc">Create Htlc</Link></p>
+                <p><Link to="/refund-bond">Refund Bond</Link></p>
+                <p><Link to="/withdraw-bond">Withdraw Bond</Link></p>
+                <p><Link to="/get-htlc-by-id">Get HTLC by ID</Link></p>
+                </Col>
+            </Row>
+        </Content>
+        </Layout>  
     );
 }
 

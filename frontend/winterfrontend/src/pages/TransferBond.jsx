@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import TransferBondForm from '../components/bonds/TransferBondForm';
+import { Breadcrumb, Layout, theme } from 'antd';
+import Navigation from "../components/Navigation";
+import { useState } from 'react';
+
+const { Header, Footer, Sider, Content } = Layout;
 
 function TransferBondPage(){
     const navigate=useNavigate();
@@ -38,11 +43,49 @@ function TransferBondPage(){
     }
 
 
-    return(
-        <section>
+    // return(
+    //     <section>
+    //         <h1>Transfer Bond</h1>
+    //         <TransferBondForm onTransferBond={transferBondHandler} />
+    //     </section>
+    // );
+
+
+    const [collapsed, setCollapsed] = useState(false);
+    const {
+      token: { colorBgContainer },
+    } = theme.useToken();
+
+    return (
+        <>
+        <Layout style={{ height: "100%" }}>
+        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <div
+                style={{
+                    height: 32,
+                    margin: 16,
+                    background: 'rgba(255, 255, 255, 0.2)',
+                }}
+                />
+            <Navigation />
+        </Sider>
+        <Layout>
+            <Header 
+                style={{
+                    padding: 0,
+                    background: colorBgContainer,
+                }}
+            >
+            
             <h1>Transfer Bond</h1>
-            <TransferBondForm onTransferBond={transferBondHandler} />
-        </section>
+            </Header>
+            <Content>
+                <TransferBondForm onTransferBond={transferBondHandler} />
+            </Content>
+    
+            </Layout>
+          </Layout>
+        </>
     );
 }
 

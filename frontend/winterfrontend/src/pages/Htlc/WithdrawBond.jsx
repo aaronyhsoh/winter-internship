@@ -1,6 +1,10 @@
 import WithdrawBondForm from '../../components/bonds/WithdrawBondForm';
 import { useNavigate } from "react-router-dom";
+import Navigation from "../../components/Navigation";
+import { Breadcrumb, Layout, theme } from 'antd';
+import { useState } from 'react';
 
+const { Header, Footer, Sider, Content } = Layout;
 function WithdrawBondPage(){
     const navigate=useNavigate();
     function withdrawBondHandler(withdrawBondData){
@@ -24,13 +28,48 @@ function WithdrawBondPage(){
             navigate("/", {replace: true});
         });
     }
+    const [collapsed, setCollapsed] = useState(false);
+    const {
+      token: { colorBgContainer },
+    } = theme.useToken();
 
+    // return(
+    //     <section>
+    //         <h1>Withdraw Bond</h1>
+    //         <WithdrawBondForm onWithdrawBond={withdrawBondHandler} />
+    //     </section>
+    // );
 
-    return(
-        <section>
+    return (
+        <>
+        <Layout style={{ height: "100%" }}>
+        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <div
+                style={{
+                    height: 32,
+                    margin: 16,
+                    background: 'rgba(255, 255, 255, 0.2)',
+                }}
+                />
+            <Navigation />
+        </Sider>
+        <Layout>
+            <Header 
+                style={{
+                    padding: 0,
+                    background: colorBgContainer,
+                }}
+            >
+            
             <h1>Withdraw Bond</h1>
-            <WithdrawBondForm onWithdrawBond={withdrawBondHandler} />
-        </section>
+            </Header>
+            <Content>
+                <WithdrawBondForm onWithdrawBond={withdrawBondHandler} />
+            </Content>
+    
+            </Layout>
+          </Layout>
+        </>
     );
 
 }

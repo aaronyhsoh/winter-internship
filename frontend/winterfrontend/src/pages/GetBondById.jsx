@@ -54,7 +54,6 @@ function GetBondByIdPage(props){
 
     return(
         <section>
-            <h1>Bond Details:</h1>
             <BondByIdItem bond={props.loadedBonds}/>
         </section>
     )
