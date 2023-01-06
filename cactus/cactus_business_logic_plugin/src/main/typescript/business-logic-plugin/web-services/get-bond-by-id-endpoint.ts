@@ -64,6 +64,7 @@ export class GetBondByIdEndpoint implements IWebServiceEndpoint {
 
 
     async handleRequest(req: Request, res: Response): Promise<void> {
+        this.log.debug("Calling get bond by id");
         const tag = `${this.getVerbLowerCase().toUpperCase()} ${this.getPath()}`;
         try {
             const request = req.body;

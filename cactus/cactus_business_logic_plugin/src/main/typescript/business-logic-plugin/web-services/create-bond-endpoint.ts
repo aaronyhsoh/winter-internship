@@ -71,6 +71,8 @@ export class CreateBondEndpoint implements IWebServiceEndpoint {
     }
 
     async handleRequest(req: Request, res: Response) : Promise<void> {
+        console.log(req);
+        this.log.info("Calling create bond");
         const tag = `${this.getVerbLowerCase().toUpperCase()} ${this.getPath()}`;
         try {
             const request = req.body;
@@ -120,7 +122,7 @@ export class CreateBondEndpoint implements IWebServiceEndpoint {
                           {
                             jvmTypeKind: JvmTypeKind.Primitive,
                             jvmType: {
-                              fqClassName: "java.lang.Long",
+                              fqClassName: "java.lang.Double",
                             },
                             primitiveValue: request.paymentInterval,
                           },
@@ -141,6 +143,7 @@ export class CreateBondEndpoint implements IWebServiceEndpoint {
             res.status(200);
             res.json(body);
         } catch (ex: unknown) {
+            console.log("Error!!!")
             const exStr = safeStringifyException(ex);
             this.log.debug(`${tag} Failed to serve request:`, ex);
             res.status(500);

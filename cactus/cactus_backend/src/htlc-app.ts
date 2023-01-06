@@ -46,7 +46,7 @@ export class HtlcApp {
 
     const { logLevel } = options;
 
-    const level = logLevel || "INFO";
+    const level = "DEBUG";
     const label = "htlc-app";
     this.log = LoggerProvider.getOrCreate({ level, label });
 
@@ -58,7 +58,7 @@ export class HtlcApp {
       this.keychain = new PluginKeychainMemory({
         instanceId: uuidv4(),
         keychainId: uuidv4(),
-        logLevel: this.options.logLevel || "INFO",
+        logLevel: this.options.logLevel || "DEBUG",
       });
     }
     this.log.info("KeychainID=%o", this.keychain.getKeychainId());
@@ -66,7 +66,7 @@ export class HtlcApp {
   }
 
   public async start(): Promise<IStartInfo> {
-    this.log.debug(`Starting SupplyChainApp...`);
+    this.log.debug(`Starting HtlcApp...`);
 
     if (!this.options.disableSignalHandlers) {
       exitHook((callback: IAsyncExitHookDoneCallback) => {
@@ -92,7 +92,7 @@ export class HtlcApp {
     const cordaApiClient = new CordaApi(cordaConfig);
 
     this.log.info(`Configuring Cactus Node for Corda...`);
-    const rpcApiHostA = `http://localhost:10006`; // corda api address
+    const rpcApiHostA = `http://localhost:10006`; // corda node address
 
     const pluginRegistryA = new PluginRegistry({
       plugins: [
@@ -150,6 +150,7 @@ export class HtlcApp {
     httpServerCockpit: Server, //frontend server?
     pluginRegistry: PluginRegistry,
   ): Promise<ApiServer> {
+    
     const addressInfoApi = httpServerApi.address() as AddressInfo;
     const addressInfoCockpit = httpServerCockpit.address() as AddressInfo;
 
@@ -161,11 +162,11 @@ export class HtlcApp {
     properties.configFile = "";
     properties.apiPort = addressInfoApi.port;
     properties.apiHost = addressInfoApi.address;
-    properties.cockpitEnabled = true;
+    properties.cockpitEnabled = false;
     properties.cockpitHost = addressInfoCockpit.address;
     properties.cockpitPort = addressInfoCockpit.port;
     properties.grpcPort = 0; // TODO - make this configurable as well
-    properties.logLevel = this.options.logLevel || "INFO";
+    properties.logLevel = "DEBUG";
 
     const apiServer = new ApiServer({
       config: properties,

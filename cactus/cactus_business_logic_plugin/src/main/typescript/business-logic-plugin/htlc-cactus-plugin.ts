@@ -43,6 +43,8 @@ export class HtlcCactusPlugin implements ICactusPlugin, IPluginWebService {
     }
 
     public async getOrCreateWebServices(): Promise<IWebServiceEndpoint[]> {
+        this.log.info("Get or create web services ");
+        console.log("get or create web services")
         if (Array.isArray(this.endpoints)) {
             return this.endpoints;
         }
@@ -61,6 +63,7 @@ export class HtlcCactusPlugin implements ICactusPlugin, IPluginWebService {
     }
 
     async registerWebServices(app: Express): Promise<IWebServiceEndpoint[]> {
+        console.log("here")
         const webServices = await this.getOrCreateWebServices();
         await Promise.all(webServices.map((ws) => ws.registerExpress(app)));
         return webServices;
